@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const regimens = require("./routes/api/regimens");
 const bodyParser = require('body-parser');
-const User = require('./models/User');
+// const User = require('./models/User');
+const keys = require('./config/keys')
 
 
 mongoose
