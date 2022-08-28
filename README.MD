@@ -1,4 +1,10 @@
-##Background and Overview
+## Background and Overview
+GetFit is a personal fitness application with social functionality that allows users to create personalized workout regimens from a wide selection of exercises. The app organizes exercises by muscle group(s) and workout type and allows users to build their own routine by customizing duration, weight and reps for each exercise. Once a user has created and named a regimen it will be publicly available for other users to see, like, comment and add to their own personal calendar.
+
+Only the original creator of a regimen can edit or delete it once it has been created. By adding these workout routines to their personalized calendar user's will be able to keep track of their own and other's workouts.
+
+Additional features would expand on the calendar to include daily logs that let users check exercises off their workout regimen at the end of each day and add their own daily comments. A visual search for exercises using a body diagram could also be implemented at a future point to create a more intuitive way for user's to find the exercises they're looking for.
+
 
 ## Functionality and MVP
 1. Hosting on Heroku
