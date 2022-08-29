@@ -4,6 +4,7 @@ const db = require('./config/keys').mongoURI;
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const regimens = require("./routes/api/regimens");
+const exercises = require("./routes/api/exercises")
 const bodyParser = require('body-parser');
 // const User = require('./models/User');
 const keys = require('./config/keys')
@@ -35,6 +36,8 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 app.use("/api/users", users);
 app.use("/api/regimens", regimens);
+app.use("/api/exercises", exercises);
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
