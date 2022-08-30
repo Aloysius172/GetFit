@@ -46,7 +46,7 @@ class SignupForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className='errors' key={`error-${i}`}>
             {this.state.errors[error]}
           </li>
         ))}
@@ -58,41 +58,51 @@ class SignupForm extends React.Component {
 
     return (
       <div className="signup-form-container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
-            <br />
+        <form className='signup-form' onSubmit={this.handleSubmit}>
+          <h1> &nbsp; &nbsp; Get <br /> &nbsp; Your <br /> Groove <br /> &nbsp; &nbsp; On!</h1>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <div className="signup-form-interior">
+            <div className='spacer' />
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email"
+              className='submission-field'
             />
-            <br />
+            <div className='spacer' />
             <input type="text"
               value={this.state.username}
               onChange={this.update('username')}
               placeholder="Username"
+              className='submission-field'
             />
-            <br />
+            <div className='spacer' />
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
+              className='submission-field'
             />
-            <br />
+            <div className='spacer' />
             <input type="password"
               value={this.state.password2}
               onChange={this.update('password2')}
               placeholder="Confirm Password"
+              className='submission-field'
             />
-            <br />
-            <input type="submit" value="Submit" />
+            <div className='spacer' />
+            <div className='submit-button'>
+              <input className='login-signup-submit' type="submit" value="Submit" />
+            </div>
             {this.renderErrors()}
           </div>
         </form>
-        <button className='delete-post-creation'
-          onClick={this.props.closeModal}>
-          Close
-        </button>
+        <div className='modal-footer-signup'>
+          <button className='close-modal-button'
+            onClick={this.props.closeModal}>
+            Close
+          </button>
+        </div>
       </div>
     );
   }
