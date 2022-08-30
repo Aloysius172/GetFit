@@ -89,6 +89,10 @@ class SignupForm extends React.Component {
             {this.renderErrors()}
           </div>
         </form>
+        <button className='delete-post-creation'
+          onClick={this.props.closeModal}>
+          Close
+        </button>
       </div>
     );
   }
