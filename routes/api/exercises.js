@@ -1,10 +1,27 @@
 const express = require("express");
 const router = express.Router();
-const Exercise = require("../../models/Exercise")
+const Exercise = require("../../models/Exercise");
+const exercise = require("../../validations/exercise");
+const validateExerciseInput = require("../../validations/exercise");
+
 
 router.get("/test", (req, res) => res.json({ msg: "This is the exercise route" }));
 
-router.post('/create', (req, res) => {
+router.get("/", (req, res) => {
+    Exercise.find()
+        // .sort({ date: -1 }) // sort newest
+        .then(exercise => res.json(exercise))
+        .catch(err => res.status(400).json(err));
+})
+
+router.get("/:id", (req, res) => {
+    Exercise
+    .findById(req.params.id)
+    .then(exercise => res.json(exercise))
+    .catch(err => res.status(400).json(err));
+})
+
+router.get('/create', (req, res) => {
 
     const newExercise = new Exercise({
         difficulty: req.body.difficulty,
