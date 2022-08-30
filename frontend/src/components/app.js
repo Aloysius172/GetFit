@@ -1,8 +1,9 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import SignupFormContainer from './session/signup_form_container'
 import LoginFormContainer from './session/login_form_container'
+import Regimens from './regimens/regimens';
 import Modal from './modal/modal';
 
 
@@ -14,6 +15,7 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute exact path="/regimens" component={Regimens} />
       <AuthRoute exact path="/" component={MainPageContainer} />
     </Switch>
   </div>

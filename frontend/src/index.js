@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let store;
 
   if (localStorage.jwtToken) {
+
     setAuthToken(localStorage.jwtToken);
 
     const decodedUser = jwt_decode(localStorage.jwtToken);
@@ -28,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore({});
   }
   const root = document.getElementById('root');
+
+  window.logout = logout()
 
   ReactDOM.render(<Root store={store} />, root);
 });
