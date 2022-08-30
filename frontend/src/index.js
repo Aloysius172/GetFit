@@ -4,7 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
-import { fetchExercise } from './util/exercise_util';
+import { fetchExercise, fetchExercises } from './util/exercise_util';
 import { logout } from './actions/session_actions';
 
 
@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const root = document.getElementById('root');
 
-  window.logout = logout()
 
   ReactDOM.render(<Root store={store} />, root);
   window.logout = logout()
-  window.fetchExercise = fetchExercise()
+  window.fetchExercise = fetchExercise("630d1ca98797e1fe9a0040a5")
+  window.fetchExercises = fetchExercises()
 
 });

@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import SignupFormContainer from './session/signup_form_container'
 import LoginFormContainer from './session/login_form_container'
 
-// import ExerciseIndexContainer from '../components/exercises/exercise_index_container'
+import ExerciseIndexContainer from '../components/exercises/exercise_index_container'
 // import ExerciseShowContainer from '../components/exercises/exercise_show_container'
 
 import Regimens from './regimens/regimens';
@@ -22,8 +22,8 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
      
-    {/* <Route exact path="/exercises" component = {ExerciseIndexContainer}/>
-    <Route exact path="/exercises/exerciseId" component={ExerciseShowContainer} /> */}
+    <Route exact path="/exercises" component = {ExerciseIndexContainer}/>
+    {/* <Route exact path="/exercises/exerciseId" component={ExerciseShowContainer} /> */}
 
       <ProtectedRoute exact path="/regimens" component={Regimens} />
       <AuthRoute exact path="/" component={MainPageContainer} />
