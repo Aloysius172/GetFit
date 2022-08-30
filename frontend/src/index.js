@@ -6,6 +6,7 @@ import jwt_decode from 'jwt-decode';
 
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_action';
+import { fetchExercise } from './util/exercise_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (decodedUser.exp < currentTime) {
       store.dispatch(logout());
       window.location.href = '/login';
+      
     }
   } else {
     store = configureStore({});
@@ -30,4 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
   ReactDOM.render(<Root store={store} />, root);
+  window.logout = logout()
+  window.fetchExercise = fetchExercise()
+
 });
