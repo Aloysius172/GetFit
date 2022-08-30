@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ModalStyle from '../../modal.css'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -78,6 +79,10 @@ class LoginForm extends React.Component {
             {this.renderErrors()}
           </div>
         </form>
+        <button className='delete-post-creation'
+          onClick={this.props.closeModal}>
+          Close
+        </button>
       </div>
     );
   }
