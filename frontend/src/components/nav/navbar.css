@@ -1,0 +1,34 @@
+
+
+.navbar-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.logged-in-links {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.logged-out-links {
+
+    float: top;
+}
+
+.nav-button {
+    padding: 2rem;
+    border-radius: 20%;
+
+}
+
+.nav-button-logout {
+    
+}
+
+.app-header {
+
+}

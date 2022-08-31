@@ -1,40 +1,34 @@
-import React, { useEffect } from "react";
+import React from 'react'
+import { UserIndexItem } from './user_index_item';
+import {Link} from 'react-router-dom'
 
-function UserIndex(props) {
+class UserIndex extends React.Component {
 
-    // const [events, setEvents] = useState([]);
-    // console.log(props.events)
-    useEffect(() => { props.getUsers() }, [])
+    componentDidMount() {
+        this.props.getUsers()
+    }
 
 
-    const users = props.users.map(user => {
-        return <div className="events-loco" key={user.id}
-            onClick={() => { window.location.href = `/#/users/${user.id}` }}>
-            <div className="momo">
-                {user.username}
-                <br />
-                {user.email}
-                <br />
-                <div>
+    render() {
+        if (this.props.users)
+            return (
+                <div className='user-index'>
+                    <ul className='user-index-list'>
+                        {this.props.users.map((user, i) => (
+                            <li key={i} className='user-index-item'>
+                                <Link to={`/users/${user._id}`}>
+                                    <UserIndexItem user={user} />
+                                </Link>
+                            </li>
+                        ))}
+
+                    </ul>
                 </div>
-                <img className="momo-pic" src="https://www.djtimes.com/wp-content/uploads/2021/08/electric-zoo-music-festival-reveals-set-times-for-2021-dj-times.jpg" alt="" />
-            </div>
+
+            )
+    }
 
 
-        </div>
-    });
 
-    return <div className="events-index-container">
-        <div className="index-header">
-        </div>
-        <div className="index-panels-container">
-            <div className="index-panels-wrapper">
-                <div className="default-wrappa">
-                    {users}
-                </div>
-            </div>
-        </div>
-    </div>
 }
-
-export default UserIndex;
+export default UserIndex

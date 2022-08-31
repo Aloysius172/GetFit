@@ -14,6 +14,7 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+
   }
 
   // Once the user has been authenticated, redirect to the Tweets page
@@ -84,6 +85,7 @@ class LoginForm extends React.Component {
             />
             <div className='spacer' />
             <div className='submit-button'>
+
               <input className='login-signup-submit' type="submit" value="Submit" />
             </div>
             {this.renderErrors()}

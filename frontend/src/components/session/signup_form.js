@@ -43,6 +43,7 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history);
   }
 
+
   renderErrors() {
     return (
       <ul>
@@ -93,6 +94,7 @@ class SignupForm extends React.Component {
             />
             <div className='spacer' />
             <div className='submit-button'>
+
               <input className='login-signup-submit' type="submit" value="Submit" />
             </div>
             {this.renderErrors()}
