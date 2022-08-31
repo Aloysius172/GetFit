@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const fetchExercises = () => {
-  debugger
+  // debugger
   return axios.get('/api/exercises/')
 };
 

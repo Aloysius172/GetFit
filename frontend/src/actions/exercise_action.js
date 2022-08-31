@@ -17,13 +17,13 @@ export const receiveExercise = (exercise) => {
 
 export const fetchExercises = () => dispatch => (
   ExerciseUtils.fetchExercises()
-  .then(exercises => dispatch(receiveExercises(exercises)))
+  .then(exercises => dispatch(receiveExercises(exercises.data)))
 )
 
 export const fetchExercise = id => dispatch => {
-  debugger
+  // debugger
   return  ExerciseUtils.fetchExercise(id)
-    .then(exercise => dispatch(receiveExercise(exercise)))
+    .then(exercise => dispatch(receiveExercise(exercise.data)))
 
 }
 

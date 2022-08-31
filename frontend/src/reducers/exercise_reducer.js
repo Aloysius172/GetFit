@@ -36,13 +36,13 @@ import { RECEIVE_EXERCISES, RECEIVE_EXERCISE } from "../actions/exercise_action"
 //   }
 // }
 
-export default function (state = {}, action) {
+const exercisesReducer = (state = {}, action) => {
   Object.freeze(state);
   let nextState = Object.assign({}, state)
 
   switch (action.type) {
     case RECEIVE_EXERCISE:
-      nextState[action.exercise.id] = action.exercise;
+      nextState[action.exercise._id] = action.exercise;
       return nextState;
 
     case RECEIVE_EXERCISES:
@@ -55,3 +55,5 @@ export default function (state = {}, action) {
       return state;
   }
 }
+
+export default exercisesReducer
