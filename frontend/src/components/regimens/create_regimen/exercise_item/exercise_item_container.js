@@ -4,7 +4,7 @@ import { fetchExercises } from '../../../../actions/exercise_action';
 // import { deleteExerciseFromRegimen } from '../../../../actions/regimen_actions';
 
 const mSTP = (state) => {
-    const exercises = Object.values(state.exercises);
+    const exercises = Object.values(state.entities.exercises);
     return {
         exercises: exercises,
         errors: state.errors.session

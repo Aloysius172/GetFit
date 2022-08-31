@@ -1,40 +1,4 @@
-<<<<<<< HEAD
-// import React from 'react'
-// class ExerciseIndex extends React.Component{
-//  constructor(props){
-//     super(props)
-    
-//  }
 
-//  componentDidMount(){
-//   debugger
-//   this.props.exercises
-//  }  
- 
-
-//  render(){
-//     debugger
-//     return(
-//       <div>
-//         <ul>
-//         {this.props.exercises.map((exercise, i) => (
-//           <li>
-//             {exercise.muscle}
-//           </li>
-//         ))}
-
-//         </ul>
-//       </div>
-      
-//     )
-//  }
- 
-
-  
-// }
-
-// export default ExerciseIndex;
-=======
 import React from 'react'
 import { connect } from "react-redux";
 import { fetchExercises } from "../../actions/exercise_action";
@@ -90,5 +54,4 @@ const mDTP = dispatch => {
 
 export default connect(mSTP, mDTP)(ExerciseIndex)
 
->>>>>>> main
   

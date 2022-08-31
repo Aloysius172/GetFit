@@ -6,7 +6,7 @@ import RegimenCreateStyle from './create_regimen.css'
 
 
 const mSTP = (state) => {
-    const exercises = Object.values(state.exercises);
+    const exercises = Object.values(state.entities.exercises);
     return {
         exercises: exercises,
         errors: state.errors.session
