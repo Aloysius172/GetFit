@@ -4,7 +4,7 @@ export const getUsers = () => {
     return axios.get('/api/users')
     .then(function (response) {
     // your action after success
-        console.log(response);
+        // console.log(response);
 })};
 
 export const getUser = (userId) => {

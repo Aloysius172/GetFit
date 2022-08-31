@@ -15,6 +15,7 @@ router.get("/", (req, res) => {
 })
 
 router.get("/:id", (req, res) => {
+    // debugger
     Exercise
     .findById(req.params.id)
     .then(exercise => res.json(exercise))
@@ -35,8 +36,11 @@ router.get('/create', (req, res) => {
     newExercise.save()
         .then(data => res.json(data))
         .catch(err => console.log(err))
-
-
 })
+
+// router.get('/:id', (req, res) => {
+//     Exercise.findById(req.params.id)
+//         .then(exercise => res.json(exercise))
+// })
 
 module.exports = router;
