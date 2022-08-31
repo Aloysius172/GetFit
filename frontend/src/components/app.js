@@ -31,13 +31,13 @@ const App = () => (
     <Modal />
     <NavBarContainer />
     <Switch>
-      <Route exact path="/regimens/create" component={CreateRegimenFormContainer} />
+      <ProtectedRoute exact path="/regimens/create" component={CreateRegimenFormContainer} />
       <Route exact path="/exercises" component = {ExerciseIndex}/>
       {/* <Route exact path="/exercises/exerciseId" component={ExerciseShowContainer} /> */}
       <Route exact path="/exercises/:exerciseId" component={ExerciseShow} />
       <ProtectedRoute exact path="/regimens" component={Regimens} />
 
-      <AuthRoute exact path="/users" component={user_index_container} />
+      <ProtectedRoute exact path="/users" component={user_index_container} />
       {/* <AuthRoute exact path="/" component={MainPageContainer} /> */}
 
       <AuthRoute exact path="/" component={MainPageContainer} />
