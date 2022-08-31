@@ -25,6 +25,15 @@ export const removeRegimen = () => {
   }
 }
 
+export const fetchRegimen = (regimenId) => dispatch => RegimenUtil.fetchRegimen(regimenId)
+  .then(regimen => dispatch(receiveRegimen(regimen.data)));
+
+export const fetchRegimens = () => dispatch => RegimenUtil.fetchRegimens()
+  .then(regimens => dispatch(receiveRegimens(regimens.data)));
+
+export const updateRegimen = (regimen) => dispatch => RegimenUtil.updateRegimen(regimen)
+  .then(regimen => dispatch(receiveRegimen(regimen.data)));
+
 
 export const createRegimen = (formRegimen) => dispatch => {
   return RegimenUtil.createRegimen(formRegimen)
