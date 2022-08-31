@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Greeting = ({ currentUser, logout, openModal }) => {
+
+
+
+const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
+
+
   const sessionLinks = () => (
     <div className="greeting">
       <div id="greeting">
@@ -9,6 +14,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
 
           <button id="greeting-login" onClick={() => openModal('login')}>Login</button>
           <button id="greeting-signup" onClick={() => openModal('signup')}>Signup</button>
+          <button className='demo-login' onClick={() => processDemoLogin({email: "tester@t.com", password: "tester1"})}>Demo</button>
         </nav>
       </div>
     </div>
