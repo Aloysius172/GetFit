@@ -16,22 +16,24 @@ router.get("/", (req,res) => {
 });
 
 router.get("/user/:user_id", (req, res) => {
+    
     Tweet
         .find({ user: req.params.user_id})
         .then(tweets => res.json(tweets))
         .catch(err => res.status(400).json(err))
 })
 
-router.post("/", passport.authenticate("jwt", { session: false }),
-(req, res) => {
-    const { isValid, errors } = validateTweetInput(reg.body)
+router.post("/", (req, res) => {
+    console.log(req.user_id)
+    console.log(req.body)
+    const { isValid, errors } = validateTweetInput(req.body)
 
     if(!isValid) {
         return res.status(400).json(errors);
     }
 
     const newTweet = new Tweet({
-        user:req.user.id,
+        user_id:req.body.user_id,
         text: req.body.text
     });
 
