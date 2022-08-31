@@ -4,9 +4,10 @@ const db = require('./config/keys').mongoURI;
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const regimens = require("./routes/api/regimens");
-const exercises = require("./routes/api/exercises")
+const exercises = require("./routes/api/exercises");
+const tweets = require("./routes/api/tweets")
+const likes = require("./routes/api/likes")
 const bodyParser = require('body-parser');
-// const User = require('./models/User');
 const keys = require('./config/keys')
 
 
@@ -37,6 +38,8 @@ app.listen(port, () => console.log(`Server is running on port ${port}`));
 app.use("/api/users", users);
 app.use("/api/regimens", regimens);
 app.use("/api/exercises", exercises);
+app.use("/api/tweets", tweets)
+app.use("/api/likes", likes);
 
 
 app.use(bodyParser.urlencoded({ extended: false }));

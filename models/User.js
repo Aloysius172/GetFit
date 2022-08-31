@@ -21,3 +21,8 @@ const UserSchema = new Schema({
 });
 
 module.exports = User = mongoose.model('users', UserSchema);
+
+
+
+/// user show page 
+//rendering likes, comments

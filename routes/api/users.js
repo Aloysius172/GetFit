@@ -9,6 +9,22 @@ const validateLoginInput = require('../../validations/login')
 
 router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 
+router.get("/", (req, res) => {
+  // console.log(user.req)
+  User.find()
+    .sort({ date: -1 }) // sort newest
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json(err));
+});
+
+router.get("/:id", (req, res) => {
+  console.log(req.body)
+  User
+    .find({ user: req.params._id })
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json(err))
+})
+
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body);
 
