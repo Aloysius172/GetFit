@@ -6,9 +6,6 @@ import SignupFormContainer from '../session/signup_form_container';
 
 function Modal({ modal, closeModal }) {
 
-    // debugger;
-
-
     if (!modal) {
         return null;
     }
