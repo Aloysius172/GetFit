@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ModalStyle from '../../modal.css'
+
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
     return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className='errors' key={`error-${i}`}>
             {this.state.errors[error]}
           </li>
         ))}
@@ -60,29 +60,39 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+      <div className="login-form-container">
+        <form className='login-form' onSubmit={this.handleSubmit}>
+          <div className='greeting-login'>
+            <h1>Welcome <br />&nbsp; Back!</h1>
+          </div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+          <div className='login-form-interior'>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}
               placeholder="Email"
+              className='submission-field'
             />
-            <br />
+            <div className='spacer' />
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
               placeholder="Password"
+              className='submission-field'
             />
-            <br />
-            <input type="submit" value="Submit" />
+            <div className='spacer' />
+            <div className='submit-button'>
+              <input className='login-signup-submit' type="submit" value="Submit" />
+            </div>
             {this.renderErrors()}
           </div>
         </form>
-        <button className='delete-post-creation'
-          onClick={this.props.closeModal}>
-          Close
-        </button>
+        <div className='modal-footer-login'>
+          <button className='close-modal-button'
+            onClick={this.props.closeModal}>
+            Close
+          </button>
+        </div>
       </div>
     );
   }
