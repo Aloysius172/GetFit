@@ -21,9 +21,7 @@ export const fetchExercises = () => dispatch => (
 )
 
 export const fetchExercise = id => dispatch => {
-  // debugger
   return  ExerciseUtils.fetchExercise(id)
     .then(exercise => dispatch(receiveExercise(exercise.data)))
-
 }
 

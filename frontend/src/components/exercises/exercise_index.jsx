@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { connect } from "react-redux";
 import { fetchExercises } from "../../actions/exercise_action";

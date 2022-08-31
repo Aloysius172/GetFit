@@ -76,7 +76,7 @@
 }
 
 .login-signup-submit:active {
-    background-color: black;
+    background-color: rgb(77, 74, 74);
     box-shadow: 0 0 2px black;
     transform: translateY(2px);
 }
@@ -122,4 +122,24 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+}
+
+.demo-login {
+    background-color: rgb(229, 220, 93);
+    color: black;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    height: 30px;
+    width: 80px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 10%;
+}
+
+.demo-login:active {
+    background-color: rgb(64, 64, 3);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
 }
