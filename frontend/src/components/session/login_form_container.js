@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 import LoginForm from './login_form';
 import { closeModal } from '../../actions/modal_actions';
-import ModalStyle from '../../modal.css'
+import ModalStyle from '../modal/modal.css'
 
 const mSTP = (state) => {
   return {

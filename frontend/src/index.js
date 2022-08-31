@@ -37,5 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout()
   window.fetchExercise = fetchExercise("630d1ca98797e1fe9a0040a5")
   window.fetchExercises = fetchExercises()
+  window.getState = store.getState;
 
 });
