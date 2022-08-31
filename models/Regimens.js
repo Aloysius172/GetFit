@@ -9,17 +9,21 @@ const RegimenSchema = new Schema({
 
     title: {
         type: String,
-        required: true
+      required: true
     },
 
     description: {
         type: String,
-        require: true
-    }
+        required: true
+    },
 
-    // exercise: [
-        
-    // ]
+    exercise_ids: {
+        type: [Schema.Types.ObjectId],
+    }
 });
+
+
+//create postman on raw data type (json)
+
 
 module.exports = Regimen = mongoose.model('regimens', RegimenSchema);

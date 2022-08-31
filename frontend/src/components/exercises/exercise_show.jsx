@@ -25,14 +25,17 @@ class ExerciseShow extends React.Component{
       {this.props.exercise.name}
       </h1>
       <p className='exercise-show-description'>
-        {this.props.exercise.description}
+        Description: {this.props.exercise.description}
       </p>
       <div className='exercise-show-difficulty'>
         Difficulty: {this.props.exercise.difficulty}
       </div>
         <div className='exercise-show-muscle'>
-        {this.props.exercise.muscle}
+        Muscle: {this.props.exercise.muscle}
       </div>
+        <div className='exercise-show-type'>
+          Tpye Of Exercise: {this.props.exercise.tpyeOfExercise}
+        </div>
      </div>
     )
   } 

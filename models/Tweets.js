@@ -3,7 +3,7 @@ const { schema } = require("./User");
 const Schema = mongoose.Schema;
 
 const TweetSchema = new Schema({
-    user: {
+    user_id: {
         type: Schema.Types.ObjectId,
         ref: "users"
     }, 
