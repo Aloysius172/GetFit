@@ -14,7 +14,6 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
-    this.handleDemoLogin = this.handleDemoLogin(this);
   }
 
   componentDidMount() {
@@ -33,6 +32,7 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     let user = {
       email: this.state.email,
       username: this.state.username,
@@ -41,16 +41,6 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history);
-  }
-  handleDemoLogin(e) {
-    e.preventDefault();
-
-    let user = {
-      email: "demoUser@demo.com",
-      password: "demoPassword"
-    };
-
-    this.props.login(user);
   }
 
   renderErrors() {
@@ -103,7 +93,6 @@ class SignupForm extends React.Component {
             />
             <div className='spacer' />
             <div className='submit-button'>
-              <button className='demo-login'onClick={this.handleDemoLogin} >Demo</button>
               <input className='login-signup-submit' type="submit" value="Submit" />
             </div>
             {this.renderErrors()}

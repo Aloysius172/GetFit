@@ -1,19 +1,32 @@
-/* .regimen-submit-container {
+.regimen-submit-container {
     display: flex;
     justify-content: center;
     align-items: center; 
 }
 
-.exercise-item-container {
-    max-width: 400px;
+.exercises-on-regimen-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .regimen-form {
     position: absolute;
     top: 50px;
     left: 50px;
+    width: 300px;
 }
 
-.exercises-on-regimen-form {
+.exercise-item-container {
+    min-width: 220px;
+    min-height: 220px;
+    border: 12px;
+}
 
-} */
+.spacer {
+    width: 400px;
+}
+
+.exercise-text {
+    max-width: 100px;
+    max-height: 100px;
+}

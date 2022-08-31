@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ExerciseItem from './exercise_item';
 import { fetchExercises } from '../../../../actions/exercise_action';
+import ExerciseItemStyle from './exercise_item.css';
 // import { deleteExerciseFromRegimen } from '../../../../actions/regimen_actions';
 
 const mSTP = (state) => {

@@ -23,26 +23,24 @@ class ExerciseItem extends React.Component {
 
             return (
                 <div className='exercise-item-container'>
+                        <div className='exercise-text-container'>
                             <div className="exercise-text">
 
                                 <div className="exercise-content">
                                     <h3 className="exercise-name-form">
                                         {this.props.exercise.name}
                                     </h3>
-                                    <p readOnly className="exercise-description-form">
-                                        {this.props.exercise.description}
-                                    </p>
-                                    <p readOnly className="exercise-type-form">
-                                        {this.props.exercise.tpyeOfExercise}
-                                    </p>
                                     <p readOnly className="exercise-difficulty-form">
                                         {this.props.exercise.difficulty}
                                     </p>
-                                    <p readOnly className="exercise-muscle-form">
-                                        {this.props.exercise.muscle}
-                                    </p>
+                                </div>
+                                <div className='regimen-buttons-container'>
+                                    <button className='exercise-regimen-modal'>Info</button>
+                                    <div className='button-spacer'></div>
+                                    <button className='exercise-regimen-submit'>Add</button>
                                 </div>
                             </div>
+                        </div>
                 </div>
         );
     }
