@@ -8,6 +8,13 @@ import ExerciseIndex from '../components/exercises/exercise_index'
 import ExerciseShow from "../components/exercises/exercise_show"
 import Regimens from './regimens/regimens';
 import Modal from './modal/modal';
+
+import user_index_container from './user/user_index_container';
+
+
+// import MainPageContainer from './main/main_page_container';
+// import User from './user/user_index_container'
+
 import MainPageContainer from './main/main_page_container';
 
 // console.log(ExerciseShow)
@@ -23,6 +30,10 @@ const App = () => (
       {/* <Route exact path="/exercises/exerciseId" component={ExerciseShowContainer} /> */}
       <Route exact path="/exercises/:exerciseId" component={ExerciseShow} />
       <ProtectedRoute exact path="/regimens" component={Regimens} />
+
+      <AuthRoute exact path="/users" component={user_index_container} />
+      {/* <AuthRoute exact path="/" component={MainPageContainer} /> */}
+
       <AuthRoute exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/exercise/exerciseId" component={ExerciseIndex} />
     </Switch>
