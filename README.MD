@@ -8,8 +8,8 @@ Additional features would expand on the calendar to include daily logs that let 
 
 ## Functionality and MVP
 1. Hosting on Heroku
-2. User Authentificton
-3. Exercise
+2. User Authentification
+3. Exercises
 * Index for exercises also sorted by muscle group it works.
 * Show page for each exercise with further information.
 4. Regimens 
@@ -17,7 +17,7 @@ Additional features would expand on the calendar to include daily logs that let 
 * Allows users to add exercises to their own customized regimen
 * Allows users to scale workouts.
 * User regimens can be copied by other users onto their own calendar.
-5. Comments/Likes
+5. Comments/Likes (CRUD)
 * Users will be able to comment and like other users workout regimens
 * Comments can be updated and deleted
 6. Calendar
