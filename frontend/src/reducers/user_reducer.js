@@ -20,10 +20,10 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_USER:
             nextState[action.user.id] = action.user.data;
             return nextState
-        case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
-        case LOGOUT_CURRENT_USER:
-            return {}
+        // case RECEIVE_CURRENT_USER:
+        //     return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
+        // case LOGOUT_CURRENT_USER:
+        //     return {}
         default:
             return state;
     }
