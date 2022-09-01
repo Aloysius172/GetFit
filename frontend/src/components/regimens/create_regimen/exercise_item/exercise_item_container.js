@@ -8,7 +8,7 @@ const mSTP = (state) => {
     const exercises = Object.values(state.entities.exercises);
     return {
         exercises: exercises,
-        errors: state.errors.session
+        errors: state.errors.session,
     };
 };
 

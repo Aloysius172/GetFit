@@ -8,7 +8,7 @@ class CreateRegimenForm extends React.Component {
         super(props);
 
         this.state = {
-            user_id: '',
+            user_id: props.currentUserId,
             title: '',
             description: '',
             exercise: [],
@@ -17,6 +17,7 @@ class CreateRegimenForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.addExercise = this.addExercise.bind(this)
     }
 
 
@@ -37,6 +38,12 @@ class CreateRegimenForm extends React.Component {
         return e => this.setState({
             [field]: e.currentTarget.value
         });
+    }
+
+   // Add ezxercise to this.state.exercise
+
+    addExercise(exercise) {
+        this.state.exercise.push(exercise)
     }
 
     // Handle form submission
@@ -70,10 +77,11 @@ class CreateRegimenForm extends React.Component {
 
     render() {
         if(this.props.exercises) {
-        let exercises = this.props.exercises.map(exercise =>
+        let exercises = this.props.exercises.map(exrc =>
             <ExerciseItemContainer
-                exercise={exercise}
-                key={exercise.id}
+                exrc={exrc}
+                key={exrc.id}
+                addExercise={this.addExercise()}
                 // users={this.props.users}
             />)
 
@@ -87,11 +95,11 @@ class CreateRegimenForm extends React.Component {
                             placeholder="Title"
                             className='submission-field'
                         />
-                        <input type="text"
+                        <input type="textarea"
                             value={this.state.description}
                             onChange={this.update('description')}
                             placeholder="Description"
-                            className='submission-field'
+                            className='description-field'
                         />
                         <div className='submit-regimen-errors'>
                             {this.renderErrors()}
@@ -99,6 +107,7 @@ class CreateRegimenForm extends React.Component {
                         <div className="selected-exercises-container">
                             <ul className='selected-exercises'>
                                 Users Selected Exercises
+                                <div>{this.state.exercise}</div>
                             </ul>
                         </div>
                         <div className='submit-regimen-button'>
