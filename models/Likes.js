@@ -5,21 +5,26 @@ const LikeSchema = new Schema(
     {
         liked: {
             type: Boolean,
-            default: false,
+            // default: false,
+            require: true,
         },
         user_id: {
             type: Schema.Types.ObjectId,
-            ref: "User",
-            required: true,
+            // type: String,
+            ref: "users",
+            // required: true,
         },
         regimen_id: {
             type: Schema.Types.ObjectId,
-            ref: "Regimen",
-            required: true,
+            // type: String,
+            ref: "regimens",
+            // required: true,
         },
-    },
-    {
-        timestamps: true,
+
+        date: {
+            type: Date,
+            default: Date.now
+        }
     }
 );
 

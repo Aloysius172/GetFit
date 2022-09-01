@@ -18,7 +18,7 @@ class ExerciseShow extends React.Component{
   render(){
     // debugger
     // let alo = this.props.exercise ? this.props.exercise : { name: '...loading'}
-    // console.log(this.props)
+    console.log(this.props)
     if(this.props.exercise)
     return (
      <div>

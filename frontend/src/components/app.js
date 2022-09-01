@@ -9,6 +9,8 @@ import ExerciseShow from "../components/exercises/exercise_show"
 import Regimens from './regimens/regimens';
 import Modal from './modal/modal';
 
+import './app_css_reset.css';
+
 
 import NavBarContainer from './nav/navbar_container'
 
