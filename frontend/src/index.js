@@ -6,7 +6,8 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { fetchExercise, fetchExercises } from './util/exercise_util';
 import { logout } from './actions/session_actions';
-
+import { getUsers } from './util/user_api_util'
+ 
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -38,5 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchExercise = fetchExercise("630d1ca98797e1fe9a0040a5")
   window.fetchExercises = fetchExercises()
   window.getState = store.getState;
+  window.getUsers = getUsers()
 
 });
