@@ -68,7 +68,7 @@ class ExerciseIndex extends React.Component{
         {this.props.exercises.map((exercise, i) => (
           
           <div key={i} className='exercise-index-row'>
-            <Link classname='exercise-index-name' to={`/exercises/${exercise._id}`}>
+            <Link className='exercise-index-name' to={`/exercises/${exercise._id}`}>
               <ExerciseIndexItem exercise={exercise} />
             </Link>
         <div className='exercise-index-difficulty'>
