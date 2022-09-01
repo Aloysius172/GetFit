@@ -24,19 +24,21 @@ class Regimens extends React.Component {
     }
 }
 
-const mSTP = (state) => {
-    // debugger
-    return {
-        regimens: Object.values(state.entities.regimens)
-    }
-}
+export default Regimens
 
-const mDTP = dispatch => {
-    // debugger
-    return {
-        fetchRegimens: () => dispatch(fetchRegimens()),
-        fetchUserRegimen: (userId) => dispatch(fetchUserRegimen(userId))
-    }
-}
+// const mSTP = (state) => {
+//     // debugger
+//     return {
+//         regimens: Object.values(state.entities.regimens)
+//     }
+// }
 
-export default connect(mSTP, mDTP)()
+// const mDTP = dispatch => {
+//     // debugger
+//     return {
+//         fetchRegimens: () => dispatch(fetchRegimens()),
+//         fetchUserRegimen: (userId) => dispatch(fetchUserRegimen(userId))
+//     }
+// }
+
+// export default connect(mSTP, mDTP)()
