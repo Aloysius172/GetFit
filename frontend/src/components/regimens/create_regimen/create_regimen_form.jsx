@@ -106,6 +106,7 @@ class CreateRegimenForm extends React.Component {
                         </div>
                     </div>
                 </form>
+                <div className='spacer'></div>
                 <div className='exercises-on-regimen-form'>
                     {exercises}
                 </div>
