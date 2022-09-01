@@ -9,6 +9,7 @@ align-items: center;
 justify-content: space-between;
 position: relative;
 font-weight: 700;
+/* width: 100%; */
 }
 
 .exercise-index-row {
@@ -34,16 +35,17 @@ font-weight: 700;
 }
 
 .exercise-index-difficulty{
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 840px;
+text-align: left;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+position: relative;
+left: 700px;
 }
 
 .exercise-index-muscle {
+text-align: left;
 position: absolute;
 right: 100px;
 } 

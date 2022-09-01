@@ -22,15 +22,17 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
-router.get('/create', (req, res) => {
+router.post('/create', (req, res) => {
 
     const newExercise = new Exercise({
         difficulty: req.body.difficulty,
         muscle: req.body.muscle,
-        tpyeOfExercise: req.body.tpyeOfExercise,
+        typeOfExercise: req.body.typeOfExercise,
         description: req.body.description,
         assisted: req.body.assisted,
-        name: req.body.name
+        name: req.body.name,
+        video_id: req.body.video_id,
+        equipment: req.body.equipment
 
     });
     newExercise.save()

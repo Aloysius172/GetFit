@@ -10,6 +10,8 @@ module.exports = function validateRegisterInput(data) {
     data.description = validText(data.description) ? data.description : '';
     data.assisted = validText(data.assisted) ? data.assisted : '';
     data.name = validText(data.name) ? data.name : '';
+    data.video_id = validText(data.video_id) ? data.video_id : '';
+    data.equipment = validText(data.equipment) ? data.equipment : '';
 
 
     if (Validator.isEmpty(data.muscle)) {
@@ -32,6 +34,14 @@ module.exports = function validateRegisterInput(data) {
 
     if (Validator.isEmpty(data.name)) {
         errors.name = 'name field is required';
+    }
+
+    if (Validator.isEmpty(data.video_id)) {
+        errors.video_id = 'video_id field is required';
+    }
+    
+    if (Validator.isEmpty(data.equipment)) {
+        errors.equipment = 'equipment field is required';
     }
 
     return {
