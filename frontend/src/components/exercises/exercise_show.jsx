@@ -20,6 +20,7 @@ class ExerciseShow extends React.Component{
           {this.props.exercise.name}
         </h1>
       <div/>
+      <div className='top-info'>
         <div className='exercise-show-muscle'>
           <h3 className='muscle-label'>
             Muscle:
@@ -45,18 +46,19 @@ class ExerciseShow extends React.Component{
             </span>
           </div>
       </div>
+      </div>
       <div className='exercise-show-bottom'>
+        <div className='exercise-show-description'>
+          <h2 className='description-label'>
+            Description:
+          </h2>
+          <p className='description-content'>
+            {this.props.exercise.description}
+          </p>
+        </div>
         <div className='exercise-show-video'>
           <YoutubeEmbed embedId={this.props.exercise.video_id} />
-        </div>
-          <div className='exercise-show-description'>
-            <h2 className='description-label'>
-              Description:
-            </h2>
-            <p className='description-content'>
-              {this.props.exercise.description}
-            </p> 
-          </div>
+        </div> 
       </div>
      </div>
     )
