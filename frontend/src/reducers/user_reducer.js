@@ -11,14 +11,14 @@ const usersReducer = (state = {}, action) => {
         case RECEIVE_USERS:
             console.log(Object.values)
             Object.values(action.users.data).forEach(user => {
-                nextState[user.id] = user;
+                nextState[user._id] = user;
             });
             return nextState;
         case RECEIVE_USER_LOGOUT:
             nextState = {}
             return nextState
         case RECEIVE_USER:
-            nextState[action.user.id] = action.user.data;
+            nextState[action.user._id] = action.user.data;
             return nextState
         // case RECEIVE_CURRENT_USER:
         //     return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });

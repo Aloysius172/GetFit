@@ -42,14 +42,13 @@ router.get('/:id', (req, res) => {
         .catch(() => res.status(404).json({ error: "The Like was not found" }))
 })
 
-router.post("/",
-    passport.authenticate("jwt", { session: false }),
-    (req, res) => {
-        const { isValid, errors } = validateLikeInput(req.body);
+router.post('/', (req, res) => {
+    // passport.authenticate("jwt", { session: false }),
+        // const { isValid, errors } = validateLikeInput(req.body);
 
-        if (!isValid) {
-            return res.status(400).json(errors);
-        }
+        // if (!isValid) {
+        //     return res.status(400).json(errors);
+        // }
 
         const newLike = new Like({
             user_id: req.body.user_id,
@@ -60,8 +59,7 @@ router.post("/",
         newLike
             .save()
             .then(like => res.json(like));
-    }
-);
+    });
 
 
 // Delete route for like
