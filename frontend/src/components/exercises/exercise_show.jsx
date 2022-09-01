@@ -34,7 +34,7 @@ class ExerciseShow extends React.Component{
         Muscle: {this.props.exercise.muscle}
       </div>
         <div className='exercise-show-type'>
-          Tpye Of Exercise: {this.props.exercise.tpyeOfExercise}
+          Type Of Exercise: {this.props.exercise.typeOfExercise}
         </div>
      </div>
     )

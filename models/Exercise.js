@@ -13,7 +13,7 @@ const ExerciseSchema = new Schema({
         required: true
     },
 
-    tpyeOfExercise: {
+    typeOfExercise: {
         type: String,
         require: true
     },
@@ -29,6 +29,16 @@ const ExerciseSchema = new Schema({
     },
 
     name: {
+        type: String,
+        require: true
+    },
+
+    video_id: {
+        type: String, 
+        require: true
+    },
+
+    equipment: {
         type: String,
         require: true
     },
