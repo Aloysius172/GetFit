@@ -29,6 +29,8 @@ class NavBar extends React.Component {
         } else {
             return (
                 <div className='logged-out-links'>
+                    {/* <button id="greeting-login" onClick={() => openModal('login')}>Login</button>
+                    <button id="greeting-signup" onClick={() => openModal('signup')}>Signup</button> */}
                     {/* <Link to={'/signup'}>Signup</Link>
                     <Link to={'/login'}>Login</Link> */}
                     <Link to={'/exercises'}>Exercises</Link>
@@ -40,7 +42,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className='navbar-div'>
-                <h1 className='app-header'>GetFit</h1>
+                <Link to='/'>GetFit</Link>
                 { this.getLinks() }
             </div>
         );
