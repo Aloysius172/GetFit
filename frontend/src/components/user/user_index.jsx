@@ -23,6 +23,7 @@ class UserIndex extends React.Component {
                         ))}
 
                     </ul>
+                    
                 </div>
 
             )

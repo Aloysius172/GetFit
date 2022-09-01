@@ -1,9 +1,10 @@
 
-import React from 'react'
+import React from 'react';
 import { connect } from "react-redux";
 import { fetchExercises } from "../../actions/exercise_action";
 import { Link } from 'react-router-dom'
 import { ExerciseIndexItem } from './exercise_index_item';
+
 
 class ExerciseIndex extends React.Component{
 
@@ -28,6 +29,9 @@ class ExerciseIndex extends React.Component{
         ))}
 
         </ul>
+        <div>
+          
+        </div>
       </div>
 
     )

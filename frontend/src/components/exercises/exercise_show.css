@@ -1,0 +1,33 @@
+
+
+.exercise-show-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.exercise-show-top{
+  /* position: absolute; */
+  /* display: flex; */
+  width: 100%;
+  background-color: navy;
+  color: white;
+}
+
+.exercise-show-bottom{
+  /* position:absolute; */
+  display: flex;
+  flex-direction: row;
+  /* width: 45%; */
+}
+
+.exercise-show-description{
+  display: flex;
+  flex-direction: column;
+}
+
+.difficulty-label, .muscle-label, .type-label {
+  color: goldenrod;
+}
+

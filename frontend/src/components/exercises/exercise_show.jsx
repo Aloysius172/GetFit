@@ -1,74 +1,72 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { fetchExercise } from "../../actions/exercise_action";
-// import ExerciseShow from "./exercise_show";
-// import {withRouter} from 'react-router-dom'
+import YoutubeEmbed from "./youtube_embed";
+import './exercise_show.css'
+
 
 class ExerciseShow extends React.Component{
-  // constructor(props){
-  //   super(props)
-  // }
-  
+
   componentDidMount(){
-    // debugger
    this.props.fetchExercise(this.props.match.params.exerciseId)
   }
 
   render(){
-    // debugger
-    // let alo = this.props.exercise ? this.props.exercise : { name: '...loading'}
-    // console.log(this.props)
     if(this.props.exercise)
     return (
-     <div>
-      <h1 className='exercise-show-title'>
-      {this.props.exercise.name}
-      </h1>
-      <p className='exercise-show-description'>
-        Description: {this.props.exercise.description}
-      </p>
-      <div className='exercise-show-difficulty'>
-        Difficulty: {this.props.exercise.difficulty}
-      </div>
-        <div className='exercise-show-muscle'>
-        Muscle: {this.props.exercise.muscle}
-      </div>
-        <div className='exercise-show-type'>
-          Tpye Of Exercise: {this.props.exercise.tpyeOfExercise}
+     <div className='exercise-show-container'>
+      <div className='exercise-show-top'>
+        <h1 className='exercise-show-title'>
+        {this.props.exercise.name}
+        </h1>
+        <div className='exercise-show-difficulty'>
+            <h3 className='difficulty-label'>
+            Difficulty: 
+          </h3>
+          <span className='difficulty-content'>
+            {this.props.exercise.difficulty}
+          </span>
         </div>
+          <div className='exercise-show-muscle'>
+            <h3 className='muscle-label'>
+              Muscle:
+            </h3>
+            <span className='muscle-content'>
+              {this.props.exercise.muscle}
+            </span>
+        </div>
+        <div className='exercise-show-type'>
+          <h3 className='type-label'>
+            Type of Exercise: 
+          </h3>
+          <span className='type-content'>
+            {this.props.exercise.tpyeOfExercise}
+          </span>
+        </div>
+      </div>
+      <div className='exercise-show-bottom'>
+        <div className='exercise-show-video'>
+          <YoutubeEmbed embedId="gRVjAtPip0Y" />
+        </div>
+          <div className='exercise-show-description'>
+            <h2 className='description-label'>
+              Description:
+            </h2>
+            <p className='description-content'>
+              {this.props.exercise.description}
+            </p> 
+          </div>
+      </div>
      </div>
     )
   } 
 }
 
-// export default ExerciseShow
-// const ExerciseShow = (props) => {
-
-//   // use
-
-//   // render() {
-//     // debugger
-//     // let alo = this.props.exercise ? this.props.exercise : { name: '...loading'}
-//     // console.log(this.props)
-//     console.log(props)
-//     return (
-//       <div>
-//         {props}
-//         SOMETHING
-//       </div>
-//     )
-//   // }
-// }
-// console.log('something')
 const mSTP = (state, ownProps) => {
-  // console.log(ownProps.match.params.exerciseId)
-  // console.log(state.entities.exercises)
   return { exercise: state.entities.exercises[ownProps.match.params.exerciseId]}
-
 }
 
 const mDTP = dispatch => {
-  // console.log(fetchExercise)
   return { fetchExercise: exerciseId => dispatch(fetchExercise(exerciseId)) }
 }
 
