@@ -17,36 +17,37 @@ class ExerciseShow extends React.Component{
      <div className='exercise-show-container'>
       <div className='exercise-show-top'>
         <h1 className='exercise-show-title'>
-        {this.props.exercise.name}
+          {this.props.exercise.name}
         </h1>
-        <div className='exercise-show-difficulty'>
-            <h3 className='difficulty-label'>
-            Difficulty: 
+      <div/>
+        <div className='exercise-show-muscle'>
+          <h3 className='muscle-label'>
+            Muscle:
           </h3>
-          <span className='difficulty-content'>
-            {this.props.exercise.difficulty}
+          <span className='muscle-content'>
+            {this.props.exercise.muscle}
           </span>
-        </div>
-          <div className='exercise-show-muscle'>
-            <h3 className='muscle-label'>
-              Muscle:
-            </h3>
-            <span className='muscle-content'>
-              {this.props.exercise.muscle}
-            </span>
         </div>
         <div className='exercise-show-type'>
           <h3 className='type-label'>
             Type of Exercise: 
           </h3>
           <span className='type-content'>
-            {this.props.exercise.tpyeOfExercise}
+            {this.props.exercise.typeOfExercise}
           </span>
         </div>
+          <div className='exercise-show-equipment'>
+            <h3 className='equipment-label'>
+              Equipment Needed:
+            </h3>
+            <span className='equipment-content'>
+              {this.props.exercise.equipment}
+            </span>
+          </div>
       </div>
       <div className='exercise-show-bottom'>
         <div className='exercise-show-video'>
-          <YoutubeEmbed embedId="gRVjAtPip0Y" />
+          <YoutubeEmbed embedId={this.props.exercise.video_id} />
         </div>
           <div className='exercise-show-description'>
             <h2 className='description-label'>

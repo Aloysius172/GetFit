@@ -4,7 +4,7 @@ import { BiRun } from '@react-icons/all-files/bi/BiRun'
 
 export const ExerciseIndexItem = (props) => (
   <div>
-    {props.exercise.name}:({props.exercise.difficulty})
+    {props.exercise.name}
   </div>
 )
 
