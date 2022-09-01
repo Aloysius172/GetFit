@@ -37,12 +37,12 @@ font-weight: 700;
 
 .exercise-index-difficulty{
     text-align: left;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-position: relative;
-left: -700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 840px;
 }
 
 .exercise-index-muscle {
