@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from "react-redux";
 import { fetchExercises } from "../../actions/exercise_action";
 import { Link } from 'react-router-dom'
-import { ExerciseIndexItem } from './exercise_index_item';
+import ExerciseItemContainer from './exercise_item/exercise_item_container'
 
 class ExerciseIndex extends React.Component{
 
@@ -15,23 +15,27 @@ class ExerciseIndex extends React.Component{
 
  render(){
     // debugger
-    if(this.props.exercises)
+
+
+
+    if(this.props.exercises) {
+
+      let exercises = this.props.exercises.map(exercise =>
+        <ExerciseItemContainer
+          exercise={exercise}
+          key={exercise.id}
+        // users={this.props.users}
+        />)
     return(
       <div className='exercise-index'>
-        <ul className='exercise-index-list'>
-        {this.props.exercises.map((exercise, i) => (
-          <li key={i} className='exercise-index-item'>
-            <Link to={`/exercises/${exercise._id}`}>
-              <ExerciseIndexItem exercise={exercise}/>
-            </Link>
-          </li>
-        ))}
-
-        </ul>
+        <div className='exercise-index-list'>
+            {exercises}
+        </div>
       </div>
 
     )
  }
+}
 
 
 

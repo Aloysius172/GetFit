@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom'
 const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
   const sessionLinks = () => (
-    <div className="greeting">
-      <div id="landing">
+    <div>
+      <div className="greeting">
+        <div id="landing">
 
 
         <div id="arm-left">
@@ -89,7 +90,7 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
         </p>
         </div>
         </div>
-
+  </div>
         
 
       );

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
 import { fetchExercise } from "../../actions/exercise_action";
+import { Link } from 'react-router-dom'
 // import ExerciseShow from "./exercise_show";
 // import {withRouter} from 'react-router-dom'
 
