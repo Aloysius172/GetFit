@@ -1,19 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import './navbar.css'
+import { Link, Redirect } from 'react-router-dom'
+import { openModal } from '../../actions/modal_actions';
+import './navbar.css';
 
 
 class NavBar extends React.Component {
     constructor(props) {
       super(props);
+
+      this.state = {
+        loggedIn: this.props.loggedIn
+      }
+
       this.logoutUser = this.logoutUser.bind(this);
       this.getLinks = this.getLinks.bind(this);
+      this.handleDemoLogin = this.handleDemoLogin.bind(this)
+    }
+
+    
+    handleDemoLogin(e) {
+        // e.preventDefault();
+
+        let user = {
+        email: "demoUser@demo.com",
+        password: "demoPassword"
+        };
+
+        this.props.login(user);
     }
 
     logoutUser(e) {
         e.preventDefault();
         this.props.logout();
+        window.location.reload(true)
+
     }
+
 
     getLinks() {
         if (this.props.loggedIn) {
@@ -29,9 +51,12 @@ class NavBar extends React.Component {
         } else {
             return (
                 <div className='logged-out-links'>
+                    <Link className="nav-button" to={'/exercises'}>Exercises</Link>
+                    <button className="login-button" id="greeting-login" onClick={() => this.props.openModal('login')}>Login</button>
+                    <button className="login-button" id="greeting-signup" onClick={() => this.props.openModal('signup')}>Signup</button>
+                     <button className='demo-login' onClick={() => this.handleDemoLogin()}>Demo User</button>
                     {/* <Link to={'/signup'}>Signup</Link>
                     <Link to={'/login'}>Login</Link> */}
-                    <Link to={'/exercises'}>Exercises</Link>
                 </div>
             );
         }
@@ -40,7 +65,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className='navbar-div'>
-                <h1 className='app-header'>GetFit</h1>
+                <Link to='/'><h1>GetFit</h1></Link>
                 { this.getLinks() }
             </div>
         );
