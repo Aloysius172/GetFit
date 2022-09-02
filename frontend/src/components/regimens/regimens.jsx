@@ -1,13 +1,20 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchUserRegimen, fetchRegimens } from "../../util/regimen_util";
+import { fetchRegimens } from "../../actions/regimen_actions";
+import { RegimenIndexItem } from "./regimen_index_item";
 
 
 class Regimens extends React.Component {
 
-    render () {
+    componentDidMount(){
+        this.props.fetchRegimens()
+        // fetchUserRegimen()
+        
+    }
 
+    render () {
+        if(this.props.regimens) 
         return (
             <div className="regimens-index-container">
                 <div className="regimens-index-intro">
@@ -15,30 +22,30 @@ class Regimens extends React.Component {
                     <Link className="create-regimen-link" to={'/regimens/create'}>Create a new Regimen!</Link>
                 </div>
                 <div>
-
+                    {this.props.regimens.map(regimen => 
+                    <RegimenIndexItem regimen={regimen}/>)}
                 </div>
             </div>
 
         )
-
     }
 }
 
-export default Regimens
 
-// const mSTP = (state) => {
-//     // debugger
-//     return {
-//         regimens: Object.values(state.entities.regimens)
-//     }
-// }
+const mSTP = (state) => {
+    // debugger
+    return {
+        regimens: Object.values(state.entities.regimens),
+        // users: Object.values(state.entities.users)
+    }
+}
 
-// const mDTP = dispatch => {
-//     // debugger
-//     return {
-//         fetchRegimens: () => dispatch(fetchRegimens()),
-//         fetchUserRegimen: (userId) => dispatch(fetchUserRegimen(userId))
-//     }
-// }
+const mDTP = dispatch => {
+    // debugger
+    return {
+        fetchRegimens: () => dispatch(fetchRegimens()),
+        // fetchUserRegimen: (userId) => dispatch(fetchUserRegimen(userId))
+    }
+}
 
-// export default connect(mSTP, mDTP)()
+export default connect(mSTP, mDTP)(Regimens)
