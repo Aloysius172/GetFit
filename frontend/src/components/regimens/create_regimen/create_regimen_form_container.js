@@ -11,7 +11,8 @@ const mSTP = (state) => {
     return {
         exercises: exercises,
         errors: state.errors.session,
-        currentUserId: state.session.user.id
+        currentUserId: state.session.user.id,
+        creator: state.session.user.username
     };
 };
 
