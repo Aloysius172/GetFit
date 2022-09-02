@@ -5,10 +5,6 @@ import YoutubeEmbed from "./youtube_embed";
 import './exercise_show.css'
 import { Link } from 'react-router-dom'
 import './exercise_show.css'
-
-
-
-
 class ExerciseShow extends React.Component{
 
   componentDidMount(){
