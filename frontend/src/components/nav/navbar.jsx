@@ -7,6 +7,10 @@ import { RiAccountCircleLine } from '@react-icons/all-files/ri/RiAccountCircleLi
 import { RiAccountCircleFill } from '@react-icons/all-files/ri/RiAccountCircleFill'
 import { FaRunning } from '@react-icons/all-files/fa/FaRunning'
 import { CgGym } from '@react-icons/all-files/cg/CgGym'
+import { GiMuscleUp } from '@react-icons/all-files/gi/GiMuscleUp'
+import { AiOutlineCalendar } from '@react-icons/all-files/ai/AiOutlineCalendar'
+import { ImCool } from '@react-icons/all-files/im/ImCool'
+import { BiLogOut } from '@react-icons/all-files/bi/BiLogOut'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -46,26 +50,36 @@ class NavBar extends React.Component {
             return (
                 <div className='logged-in-links'>
                     <Link className="nav-button" to={'/exercises'}>
-                        <button className="button">Exercises</button>
+                        <button className="button" id="exercises-nav-logged-in">
+                            <div><CgGym size={30} /></div>
+                             <div>Exercises</div> 
+                        </button>
                     </Link>
 
                     <Link className="nav-button" to={'/regimens'}>
-                        <button className="button">
-                        <div>image</div>
+                        <button className="button" id="regimens-nav-logged-in">
+                            <div><GiMuscleUp size={30}/> </div>
                         <div>Regimens</div>
                         </button>
                     </Link>
 
                     <Link className="nav-button" to={'/calendar'}> 
-                        <button className="button">
-                        <div>image</div>
+                        <button className="button" id="calendar-nav">
+                            <div><AiOutlineCalendar size={30} /></div>
                         <div>Calendar</div>
                         </button>
                     </Link>
                     <Link className="nav-button" to={'/users'}>
-                        <button className="button">{this.props.username}</button>
+                        <button className="button" id="user-nav-logged-in">
+                            <div><ImCool size={30}/></div>
+                           <div>{this.props.username}</div> 
+                        </button>
                     </Link>
-                    <button className="nav-button-logout" onClick={this.logoutUser}>Logout</button>
+
+                    <button className="button" id="logout-nav-button" onClick={this.logoutUser}>
+                        <div><BiLogOut size={30}/></div>
+                        <div>Logout</div>
+                    </button>
                 </div>
             );
         } else {
