@@ -121,6 +121,8 @@
 }
 
 #exercises-button {
+    position: relative;
+    left: 32px;
     width: 100px;
     background-color: #fc0000d2;
 }

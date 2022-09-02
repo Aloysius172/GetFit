@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import ExerciseItemContainer from './exercise_item/exercise_item_container'
-import ExerciseItem from './exercise_item/exercise_item';
+import ExerciseItemContainer from './exercise_item/exercise_item_container';
 
 
 class CreateRegimenForm extends React.Component {
@@ -65,7 +65,7 @@ class CreateRegimenForm extends React.Component {
     removeExercise = (idx) => {
 
         const newExercises = Object.assign([], this.state.exercise)
-        newExercises.splice(idx)
+        newExercises.splice(idx, 1)
         this.setState({exercise: newExercises})
 
     }
@@ -110,38 +110,46 @@ class CreateRegimenForm extends React.Component {
         //     />)
     // }
         return (
+        <div id="regimen-submit-master-container">
             <div className="regimen-submit-container">
-    
                 <form className='regimen-form' onSubmit={this.handleSubmit}>
                     <div className='regimen-form-interior'>
-                        <input type="text"
-                            value={this.state.title}
-                            onChange={this.update('title')}
-                            placeholder="Title"
-                            className='submission-field'
-                        />
-                        <input type="textarea"
-                            value={this.state.description}
-                            onChange={this.update('description')}
-                            placeholder="Description"
-                            className='description-field'
-                        />
+                        <div>
+                            <div id="regimen-submit-text-container">
+                                <input type="text"
+                                    value={this.state.title}
+                                    onChange={this.update('title')}
+                                    placeholder="Title"
+                                    className='submission-field'
+                                />
+                                <input type="textarea"
+                                    value={this.state.description}
+                                    onChange={this.update('description')}
+                                    placeholder="Description"
+                                    className='description-field'
+                                />
+                            </div>
+                        </div>
                         <div className='submit-regimen-errors'>
                             {this.renderErrors()}
                         </div>
-                        <div className="selected-exercises-container">
-                            <div className='spacer'></div>
-                            <h3>Selected Exercises</h3>
-                            <ul className='selected-exercises'>
-                                {this.state.exercise.map((exerciseName, idx) => 
-                                    <li>
-                                            <div>{exerciseName.name}-{exerciseName.typeOfExercise}<button onClick={() => this.removeExercise(idx)}>Remove Exercise</button></div>
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
-                        <div className='submit-regimen-button'>
-                            <input className='regimen-submit' type="submit" value="Create Regimen!" />
+                        <div id="submit-footer-container">
+                            <div id="footer-sub-container">
+                                <div className="selected-exercises-container">
+                                    <div className='spacer'></div>
+                                    <h3>Selected Exercises</h3>
+                                    <ul className='selected-exercises'>
+                                        {this.state.exercise.map((exerciseName, idx) => 
+                                            <li>
+                                                <div>{exerciseName.name}-{exerciseName.typeOfExercise}<button onClick={() => this.removeExercise(idx)}>Remove Exercise</button></div>
+                                            </li>
+                                        )}
+                                    </ul>
+                                </div>
+                                <div className='submit-regimen-button'>
+                                    <input className='regimen-submit' type="submit" value="Create Regimen!" />
+                                </div>
+                            </div>
                         </div>
                         {/* <button onClick={() => this.addExercise(this.props.exercises[0].name)}>add exercise</button> */}
                     </div>
@@ -149,7 +157,7 @@ class CreateRegimenForm extends React.Component {
                 <div className='spacer'></div>
                 <div className='exercises-on-regimen-form'>
                     {this.props.exercises.map(exrc =>
-                        <ExerciseItem
+                        <ExerciseItemContainer
                             exrc={exrc}
                             key={exrc.id}
                             addExercise={this.addExercise}
@@ -158,6 +166,7 @@ class CreateRegimenForm extends React.Component {
                     )}
                 </div>
             </div>
+        </div>
         );
         }
     }

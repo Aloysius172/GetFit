@@ -1,4 +1,4 @@
-.exercise-regimen-modal {
+/* .exercise-regimen-modal {
     background-color: rgb(252, 255, 59);
     color: rgb(111, 102, 102);
     border: none;
@@ -77,4 +77,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+.exercise-text {
+    background-color: #e94560;
+    padding: 30px;
+    border-radius: 20px;
+    min-height: 20px;
 }

@@ -7,6 +7,8 @@
 .exercises-on-regimen-form {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    top: 50px;
 }
 
 .regimen-form {
@@ -32,6 +34,47 @@
 }
 
 .description-field {
+
     padding-top: 1rem;
-    width: 25rem;
+    /* width: 25rem; */
+}
+
+#regimen-submit-master-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0f3460;
+    padding-bottom: 60px;
+}
+
+.regimen-form {
+    position: fixed;
+    top: 300px;
+    left: 0;
+    z-index: 999;
+    width: 30%;
+    height: 23px;
+}
+
+#submit-footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+        left: 80px;
+}
+
+#regimen-submit-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+}
+
+.submit-regimen-button {
+    max-width: 20px;
+}
+
+#footer-sub-container {
+max-width: 300px;
 }
