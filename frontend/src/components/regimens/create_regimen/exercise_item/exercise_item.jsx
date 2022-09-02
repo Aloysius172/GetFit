@@ -34,7 +34,7 @@ const ExerciseItem = ({ exrc }) => {
                                     <button className='exercise-regimen-modal'>Info</button>
                                     <div className='button-spacer'></div>
                                     <button className='exercise-regimen-submit'>Add</button>
-                                    <button onClick={() => this.props.addExercise(exrc)}>afef</button>
+                                    <button onClick={() => this.props.addExercise(exrc)}>add exercise</button>
                                 </div>
                             </div>
                         </div>

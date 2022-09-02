@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ExerciseItemContainer from './exercise_item/exercise_item_container'
+import ExerciseItem from './exercise_item/exercise_item';
 
 
 class CreateRegimenForm extends React.Component {
@@ -40,10 +41,13 @@ class CreateRegimenForm extends React.Component {
         });
     }
 
-   // Add ezxercise to this.state.exercise
+   // Add exercise to this.state.exercise
 
-    addExercise(exercise) {
-        this.state.exercise.push(exercise)
+    addExercise = (exercise) => {
+        debugger
+         this.setState({
+            [this.state.exercise]: this.state.exercise.push(exercise)
+         });
     }
 
     // Handle form submission
@@ -78,10 +82,10 @@ class CreateRegimenForm extends React.Component {
     render() {
         if(this.props.exercises) {
         let exercises = this.props.exercises.map(exrc =>
-            <ExerciseItemContainer
+            <ExerciseItem
                 exrc={exrc}
                 key={exrc.id}
-                addExercise={this.addExercise()}
+                // addExercise={this.addExercise}
                 // users={this.props.users}
             />)
 
@@ -110,6 +114,7 @@ class CreateRegimenForm extends React.Component {
                                 <div>{this.state.exercise}</div>
                             </ul>
                         </div>
+                        <button onClick={() => this.addExercise(this.props.exercises[1])}>add exercise</button>
                         <div className='submit-regimen-button'>
                             <input className='regimen-submit' type="submit" value="Create Regimen!" />
                         </div>

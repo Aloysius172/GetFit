@@ -21,6 +21,7 @@ export const fetchUserRegimen = (userId) => (
   axios.get(`/api/regimens/users/${userId}`)
 )
 
+
 export const updateRegimen = (regimen) => (
   axios.patch(`/api/regimens/${regimen.id}`, regimen)
 )

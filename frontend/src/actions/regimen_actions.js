@@ -5,6 +5,7 @@ export const RECEIVE_REGIMEN = "RECEIVE_REGIMEN"
 export const RECEIVE_REGIMENS = "RECEIVE_REGIMENS"
 export const REMOVE_REGIMEN = "REMOVE_REGIMEN"
 
+
 export const receiveRegimens = (regimens) => {
   return{
     type: RECEIVE_REGIMENS,
@@ -45,4 +46,8 @@ export const deleteRegimens = (regimenId) => dispatch => {
   .then(() => dispatch(removeRegimen()))
 }
 
+export const fetchUserRegimen = (regimenId) => dispatch => {
+  return RegimenUtil.fetchUserRegimen(regimenId)
+  .then((regimens) => dispatch(receiveRegimens(regimens)) )
+}
 

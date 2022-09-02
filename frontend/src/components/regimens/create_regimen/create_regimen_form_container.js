@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CreateRegimenForm from './create_regimen_form';
 import { fetchExercises } from '../../../actions/exercise_action';
 import RegimenCreateStyle from './create_regimen.css'
+import { createRegimen } from '../../../actions/regimen_actions';
 
 
 const mSTP = (state) => {
@@ -17,6 +18,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
     return {
         fetchExercises: () => dispatch(fetchExercises()),
+        createRegimen: (regimenForm) => dispatch(createRegimen(regimenForm))
     }
 }
 
