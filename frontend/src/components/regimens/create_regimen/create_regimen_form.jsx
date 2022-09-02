@@ -50,7 +50,7 @@ class CreateRegimenForm extends React.Component {
    
 
     addExercise = (exer) => {
-        debugger
+        
 
 
         const newExercises = Object.assign([], this.state.exercise)
