@@ -18,7 +18,8 @@ const RegimenSchema = new Schema({
     },
 
     exercise_ids: {
-        type: [Schema.Types.ObjectId],
+        type: Array,
+        required: true
     }
 });
 
