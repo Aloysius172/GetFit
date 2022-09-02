@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CreateRegimenForm from './create_regimen_form';
 import { fetchExercises } from '../../../actions/exercise_action';
 import RegimenCreateStyle from './create_regimen.css'
+import { createRegimen } from '../../../actions/regimen_actions';
 
 
 const mSTP = (state) => {
@@ -10,13 +11,15 @@ const mSTP = (state) => {
     return {
         exercises: exercises,
         errors: state.errors.session,
-        currentUserId: state.session.user.id
+        currentUserId: state.session.user.id,
+        creator: state.session.user.username
     };
 };
 
 const mDTP = (dispatch) => {
     return {
         fetchExercises: () => dispatch(fetchExercises()),
+        createRegimen: (regimenForm) => dispatch(createRegimen(regimenForm))
     }
 }
 

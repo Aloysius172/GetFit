@@ -1,10 +1,11 @@
 
 
 import React from 'react';
-import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
+// import './exercise_item.css';
 
 
-const ExerciseItem = ({ exrc }) => {
+const ExerciseItem = ({ exrc, addExercise }) => {
 
     // renderDeleteButtons() {
     //     if (this.props.exercise.author_id === this.props.currentUserId) {
@@ -29,12 +30,14 @@ const ExerciseItem = ({ exrc }) => {
                                     <p readOnly className="exercise-difficulty-form">
                                         {exrc.difficulty}
                                     </p>
+                                    <p readOnly className="exercise-difficulty-form">
+                                        {exrc.muscle}
+                                    </p>
                                 </div>
                                 <div className='regimen-buttons-container'>
-                                    <button className='exercise-regimen-modal'>Info</button>
+                                    <Link to={`/exercises/${exrc._id}`}><button className='exercise-regimen-modal'>Info</button></Link>
                                     <div className='button-spacer'></div>
-                                    <button className='exercise-regimen-submit'>Add</button>
-                                    <button onClick={() => this.props.addExercise(exrc)}>afef</button>
+                                    <button className='exercise-regimen-submit' onClick={() => addExercise(exrc)}>Add</button>
                                 </div>
                             </div>
                         </div>

@@ -60,3 +60,128 @@
 .app-header {
 
 }
+
+.button {
+    background-color: rgb(229, 220, 93);
+    color: black;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    height: 70px;
+    width: 60px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 10%;
+}
+
+#greeting-login {
+    background-color: #FF0063;
+}
+
+#greeting-login:active {
+    background-color: rgb(99, 6, 6);
+    box-shadow: 0 0 2px rgb(67, 4, 4);
+    transform: translateY(2px);
+}
+
+#greeting-signup {
+    background-color: #E94560;
+}
+
+#greeting-signup:active {
+    background-color: rgb(126, 62, 62);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
+}
+
+#splash-button {
+    background-color: #ABC9FF;
+}
+
+#splash-button:active {
+    background-color: rgb(10, 64, 83);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
+}
+
+#demo-login-button {
+    background-color: #FA9494;
+
+}
+
+#demo-login-button:active {
+    background-color: rgba(253, 117, 183, 0.361);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
+}
+
+#demo-login-icon:hover {
+    margin-top: -2;
+}
+
+#exercises-button {
+    width: 100px;
+    background-color: #fc0000d2;
+}
+
+#exercises-button:active {
+    background-color: rgb(79, 5, 5);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.316);
+    transform: translateY(2px);
+}
+
+#logout-nav-button {
+    width: 80px;
+    background-color: #3b179ed2;
+}
+
+#logout-nav-button:active {
+    background-color: rgb(27, 6, 88);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.316);
+    transform: translateY(2px);
+}
+
+#exercises-nav-logged-in {
+    width: 80px;
+    background-color: #658ef4f2;
+}
+
+#exercises-nav-logged-in:active {
+    background-color: rgba(100, 156, 234, 0.536);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.316);
+    transform: translateY(2px);
+}
+
+#regimens-nav-logged-in{
+    width: 80px;
+    background-color: #4e7cf1f2;
+}
+
+#regimens-nav-logged-in:active {
+    background-color: rgba(48, 91, 192, 0.572);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.316);
+    transform: translateY(2px);
+}
+
+#calendar-nav {
+    width: 80px;
+    background-color: #3066f0f2;
+}
+
+#calendar-nav:active {
+    background-color: rgba(47, 87, 217, 0.641);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.316);
+    transform: translateY(2px);   
+}
+
+#user-nav-logged-in {
+    width: 80px;
+    background-color: #2b59ccf2;
+}
+
+#user-nav-logged-in:active {
+    background-color: rgba(47, 87, 217, 0.641);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.316);
+    transform: translateY(2px); 
+}

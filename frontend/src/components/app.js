@@ -42,7 +42,7 @@ const App = () => (
       <ProtectedRoute exact path="/users" component={user_index_container} />
       {/* <AuthRoute exact path="/" component={MainPageContainer} /> */}
 
-      <AuthRoute exact path="/" component={MainPageContainer} />
+      <Route exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/exercise/exerciseId" component={ExerciseIndex} />
     </Switch>
   </div>
