@@ -16,6 +16,7 @@ class CreateRegimenForm extends React.Component {
             errors: {}
         };
 
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
         this.addExercise = this.addExercise.bind(this)
@@ -43,11 +44,20 @@ class CreateRegimenForm extends React.Component {
 
    // Add exercise to this.state.exercise
 
-    addExercise = (exercise) => {
+//    updateExercise(exercise)
+   
+
+    addExercise = (exer) => {
         debugger
-         this.setState({
-            [this.state.exercise]: this.state.exercise.push(exercise)
-         });
+
+
+        const newExercises = Object.assign([], this.state.exercise)
+        newExercises.push(exer)
+        this.setState({exercise: newExercises})
+
+            // const newExercises = Object.assign([], this.state.exercise);
+            // newExercises.push(exercise);
+            // this.setState({[this.state.exercise]: newExercises})
     }
 
     // Handle form submission
@@ -58,7 +68,7 @@ class CreateRegimenForm extends React.Component {
             user_id: this.state.user_id,
             title: this.state.title,
             description: this.state.description,
-            exercise: this.state.exercise
+            exercise_ids: this.state.exercise
         };
 
         this.props.createRegimen(regimen);
@@ -88,9 +98,10 @@ class CreateRegimenForm extends React.Component {
                 // addExercise={this.addExercise}
                 // users={this.props.users}
             />)
-
+    }
         return (
             <div className="regimen-submit-container">
+    
                 <form className='regimen-form' onSubmit={this.handleSubmit}>
                     <div className='regimen-form-interior'>
                         <input type="text"
@@ -111,23 +122,23 @@ class CreateRegimenForm extends React.Component {
                         <div className="selected-exercises-container">
                             <ul className='selected-exercises'>
                                 Users Selected Exercises
-                                <div>{this.state.exercise}</div>
+                                {/* <div>{this.state.exercise}</div> */}
                             </ul>
                         </div>
-                        <button onClick={() => this.addExercise(this.props.exercises[1])}>add exercise</button>
                         <div className='submit-regimen-button'>
                             <input className='regimen-submit' type="submit" value="Create Regimen!" />
                         </div>
+                        <button onClick={() => this.addExercise(this.props.exercises[1])}>add exercise</button>
                     </div>
                 </form>
                 <div className='spacer'></div>
                 <div className='exercises-on-regimen-form'>
-                    {exercises}
+                    {/* {exercises} */}
                 </div>
             </div>
         );
         }
     }
-}
+// }
 
 export default withRouter(CreateRegimenForm);
