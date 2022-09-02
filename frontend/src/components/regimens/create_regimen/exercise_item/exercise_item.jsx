@@ -2,48 +2,54 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Style from './exercise_item.css'
+import { withRouter } from 'react-router-dom';
 // import './exercise_item.css';
 
 
-const ExerciseItem = ({ exrc, addExercise }) => {
+class ExerciseItem extends React.Component {
+    constructor(props) {
+        super(props);
 
-    // renderDeleteButtons() {
-    //     if (this.props.exercise.author_id === this.props.currentUserId) {
-    //         return (
-    //             <button className="delete-exercise-from-regimen-button"
-    //                 onClick={() => this.props.deleteExerciseFromRegimen(this.props.exercise.id)} >
-    //             </button>
-    //         );
-    //     }
-    // }
+    };
 
 
-            return (
+    render() {
+
+        let musc;
+        if (this.props.exrc.muscle.length > 20) {
+            musc = this.props.exrc.muscle.slice(0, 20) + "...";
+        } else {
+            musc = this.props.exrc.muscle;
+        };
+        return (
                 <div className='exercise-item-container'>
                         <div className='exercise-text-container'>
                             <div className="exercise-text">
 
                                 <div className="exercise-content">
                                     <h3 className="exercise-name-form">
-                                        {exrc.name}
+                                        {this.props.exrc.name}
                                     </h3>
                                     <p readOnly className="exercise-difficulty-form">
-                                        {exrc.difficulty}
+                                        {this.props.exrc.difficulty}
                                     </p>
                                     <p readOnly className="exercise-difficulty-form">
-                                        {exrc.muscle}
+                                        {musc}
                                     </p>
                                 </div>
                                 <div className='regimen-buttons-container'>
-                                    <Link to={`/exercises/${exrc._id}`}><button className='exercise-regimen-modal'>Info</button></Link>
+                            <button onClick={() => this.props.openModal(["exc_info", this.props.exrc.difficulty])}> 
+                                        Info
+                                    </button>
                                     <div className='button-spacer'></div>
-                                    <button className='exercise-regimen-submit' onClick={() => addExercise(exrc)}>Add</button>
+                                    <button className='exercise-regimen-submit' onClick={() => this.props.addExercise(this.props.exrc)}>Add</button>
                                 </div>
                             </div>
                         </div>
                 </div>
-        );
-
+        ) 
+    }  
 }
 
-export default ExerciseItem;
+export default withRouter(ExerciseItem);
