@@ -46,4 +46,8 @@ export const deleteRegimens = (regimenId) => dispatch => {
   .then(() => dispatch(removeRegimen()))
 }
 
+export const fetchUserRegimen = (regimenId) => dispatch => {
+  return RegimenUtil.fetchUserRegimen(regimenId)
+  .then((regimens) => dispatch(receiveRegimens(regimens)) )
+}
 
