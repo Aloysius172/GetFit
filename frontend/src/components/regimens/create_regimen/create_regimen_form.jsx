@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ExerciseItemContainer from './exercise_item/exercise_item_container'
+// import ExerciseItemContainer from './exercise_item/exercise_item_container'
 import ExerciseItem from './exercise_item/exercise_item';
 
 
@@ -10,15 +10,18 @@ class CreateRegimenForm extends React.Component {
 
         this.state = {
             user_id: props.currentUserId,
+            creator: props.username,
             title: '',
             description: '',
             exercise: [],
             errors: {}
         };
 
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
-        this.addExercise = this.addExercise.bind(this)
+        this.addExercise = this.addExercise.bind(this);
+        this.removeExercise = this.removeExercise.bind(this);
     }
 
 
@@ -43,11 +46,28 @@ class CreateRegimenForm extends React.Component {
 
    // Add exercise to this.state.exercise
 
-    addExercise = (exercise) => {
-        debugger
-         this.setState({
-            [this.state.exercise]: this.state.exercise.push(exercise)
-         });
+//    updateExercise(exercise)
+   
+
+    addExercise = (exer) => {
+        
+
+
+        const newExercises = Object.assign([], this.state.exercise)
+        newExercises.push(exer)
+        this.setState({exercise: newExercises})
+
+            // const newExercises = Object.assign([], this.state.exercise);
+            // newExercises.push(exercise);
+            // this.setState({[this.state.exercise]: newExercises})
+    }
+
+    removeExercise = (idx) => {
+
+        const newExercises = Object.assign([], this.state.exercise)
+        newExercises.splice(idx)
+        this.setState({exercise: newExercises})
+
     }
 
     // Handle form submission
@@ -58,7 +78,7 @@ class CreateRegimenForm extends React.Component {
             user_id: this.state.user_id,
             title: this.state.title,
             description: this.state.description,
-            exercise: this.state.exercise
+            exercise_ids: this.state.exercise
         };
 
         this.props.createRegimen(regimen);
@@ -80,17 +100,18 @@ class CreateRegimenForm extends React.Component {
     }
 
     render() {
-        if(this.props.exercises) {
-        let exercises = this.props.exercises.map(exrc =>
-            <ExerciseItem
-                exrc={exrc}
-                key={exrc.id}
-                // addExercise={this.addExercise}
-                // users={this.props.users}
-            />)
-
+        // if(this.props.exercises) {
+        // let exercises = this.props.exercises.map(exrc =>
+        //     <ExerciseItem
+        //         exrc={exrc}
+        //         key={exrc.id}
+        //         addExercise={this.addExercise}
+        //         // users={this.props.users}
+        //     />)
+    // }
         return (
             <div className="regimen-submit-container">
+    
                 <form className='regimen-form' onSubmit={this.handleSubmit}>
                     <div className='regimen-form-interior'>
                         <input type="text"
@@ -109,25 +130,37 @@ class CreateRegimenForm extends React.Component {
                             {this.renderErrors()}
                         </div>
                         <div className="selected-exercises-container">
+                            <div className='spacer'></div>
+                            <h3>Selected Exercises</h3>
                             <ul className='selected-exercises'>
-                                Users Selected Exercises
-                                <div>{this.state.exercise}</div>
+                                {this.state.exercise.map((exerciseName, idx) => 
+                                    <li>
+                                            <div>{exerciseName.name}-{exerciseName.typeOfExercise}<button onClick={() => this.removeExercise(idx)}>Remove Exercise</button></div>
+                                    </li>
+                                )}
                             </ul>
                         </div>
-                        <button onClick={() => this.addExercise(this.props.exercises[1])}>add exercise</button>
                         <div className='submit-regimen-button'>
                             <input className='regimen-submit' type="submit" value="Create Regimen!" />
                         </div>
+                        {/* <button onClick={() => this.addExercise(this.props.exercises[0].name)}>add exercise</button> */}
                     </div>
                 </form>
                 <div className='spacer'></div>
                 <div className='exercises-on-regimen-form'>
-                    {exercises}
+                    {this.props.exercises.map(exrc =>
+                        <ExerciseItem
+                            exrc={exrc}
+                            key={exrc.id}
+                            addExercise={this.addExercise}
+                            // users={this.props.users} 
+                        />
+                    )}
                 </div>
             </div>
         );
         }
     }
-}
+// }
 
 export default withRouter(CreateRegimenForm);

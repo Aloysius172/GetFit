@@ -8,7 +8,7 @@ import './exercise_show.css'
 
 
 
->>>>>>> main
+
 class ExerciseShow extends React.Component{
 
   componentDidMount(){
