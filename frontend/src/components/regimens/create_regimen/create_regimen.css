@@ -4,6 +4,11 @@
     align-items: center; 
 }
 
+.make-a-regiment {
+    position: relative;
+    left: -80px;
+}
+
 .exercises-on-regimen-form {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -49,9 +54,9 @@
 
 .regimen-form {
     position: fixed;
-    top: 300px;
+    top: 200px;
     left: 0;
-    z-index: 999;
+    z-index: 0;
     width: 30%;
     height: 23px;
 }
@@ -76,5 +81,104 @@
 }
 
 #footer-sub-container {
-max-width: 300px;
+    max-width: 300px;
+}
+
+.regimen-form-interior {
+    display: block;
+    background-color: #3166ec;
+    border-radius: 10%;
+    max-width: 300px;
+    position: relative;
+    left: 90px;
+    min-height: 430px;
+    box-shadow: 10px 10px;
+}
+
+#regimen-text-boxes {
+    position: relative;
+    top: 40px;
+}
+
+.make-a-regiment {
+    position: relative;
+    top: 15px;
+    left: 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#footer-sub-container {
+    position: relative;
+    top: 40px;
+}
+
+.selected-exercises {
+    position: relative;
+    left: -60px;
+    width: 260px;
+    min-height: 150px;
+    display: block;
+    background-color: rgb(104, 104, 109);
+    z-index: 40;
+    border-radius: 10%;
+}
+
+.button {
+    color: black;
+    border: none;
+    padding: 5px;
+    font-size: 15px;
+    height: 30px;
+    width: 100px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 10%;
+}
+
+#submit-button {
+    background-color: #abc9ff;
+    width: 150px;
+    position: relative;
+    left: -10px;
+}
+
+#submit-button:active {
+    background-color: rgb(99, 6, 6);
+    box-shadow: 0 0 2px rgb(67, 4, 4);
+    transform: translateY(2px);
+}
+
+#description-field {
+    position: relative;
+    left: 65px;
+}
+
+.selected-exercises-individuals {
+    display: block;
+    background-color: #e94560;
+    width: 80px;
+    border-radius: 10%;
+    height: 80px;
+    padding: 10px;
+    position: relative;
+    left: 15px;
+}
+
+.selected-exercises {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#remove-from-list {
+    background-color: #abc9ff;
+    width: 80px;
+    height: 40px;
+    position: relative;
+    top: 10px;
+    right: 2px;
+}
+
+.selected-spacer {
+    height: 20000px;
 }
