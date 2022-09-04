@@ -57,10 +57,6 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    let words = "nothing";
-    if(this.props.exc) {
-      words = this.props.exc
-    }
 
     return (
       <div className="signup-form-container">
@@ -69,7 +65,6 @@ class SignupForm extends React.Component {
           <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
           <div className="signup-form-interior">
             <div className='spacer' />
-            <p>{words}</p>
             <input type="text"
               value={this.state.email}
               onChange={this.update('email')}

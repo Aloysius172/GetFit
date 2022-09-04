@@ -100,6 +100,15 @@ class CreateRegimenForm extends React.Component {
     }
 
     render() {
+        function name(name) {
+            let newName;
+            if(name.length > 7) {
+                newName = name.slice(0, 7) + "..."
+            } else {
+                newName = name;
+            }
+            return newName
+        }
         // if(this.props.exercises) {
         // let exercises = this.props.exercises.map(exrc =>
         //     <ExerciseItem
@@ -114,21 +123,27 @@ class CreateRegimenForm extends React.Component {
             <div className="regimen-submit-container">
                 <form className='regimen-form' onSubmit={this.handleSubmit}>
                     <div className='regimen-form-interior'>
-                        <div>
+                           <p className='make-a-regiment'>
+                                Make a Regimen!
+                           </p>
+                        <div id="regimen-text-boxes">
+                                
                             <div id="regimen-submit-text-container">
+    
                                 <input type="text"
                                     value={this.state.title}
                                     onChange={this.update('title')}
                                     placeholder="Title"
                                     className='submission-field'
                                 />
-                                <input type="textarea"
+                            </div>
+                                <textarea type="textarea"
+                                    id="description-field"
                                     value={this.state.description}
                                     onChange={this.update('description')}
                                     placeholder="Description"
                                     className='description-field'
                                 />
-                            </div>
                         </div>
                         <div className='submit-regimen-errors'>
                             {this.renderErrors()}
@@ -138,16 +153,25 @@ class CreateRegimenForm extends React.Component {
                                 <div className="selected-exercises-container">
                                     <div className='spacer'></div>
                                     <h3>Selected Exercises</h3>
+                                    <div id="selected-box">
                                     <ul className='selected-exercises'>
                                         {this.state.exercise.map((exerciseName, idx) => 
-                                            <li>
-                                                <div>{exerciseName.name}-{exerciseName.typeOfExercise}<button onClick={() => this.removeExercise(idx)}>Remove Exercise</button></div>
+                                            <li className="selected-exercises-individuals">
+                                                <div>
+                                                    {name(exerciseName.name)}
+                                                <br />
+                                                    {exerciseName.typeOfExercise}
+                                                    
+                                                </div>
+                                                    <button className="button" id="remove-from-list" onClick={() => this.removeExercise(idx)}>Remove Exercise</button>
+                                                    
                                             </li>
                                         )}
                                     </ul>
+                                    </div>
                                 </div>
                                 <div className='submit-regimen-button'>
-                                    <input className='regimen-submit' type="submit" value="Create Regimen!" />
+                                    <input className='button' id="submit-button" type="submit" value="Create Regimen!" />
                                 </div>
                             </div>
                         </div>

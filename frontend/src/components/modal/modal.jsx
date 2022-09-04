@@ -3,7 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
-// import ExcInfoContainer from './exc_info_container';
+import ExerciseInfo from './exrc_info';
 
 function Modal({ modal, closeModal }) {
 
@@ -16,8 +16,8 @@ function Modal({ modal, closeModal }) {
     } else if(modal === "login") {
         component = <LoginFormContainer />;
     } else if(modal[0] === "exc_info") {
-        component = <SignupFormContainer 
-                exc={modal[1]}/>;
+        component = <ExerciseInfo 
+                exrc={modal[1]}/>;
     }
     // switch (modal) { //[string, info]
     //     case 'login':
