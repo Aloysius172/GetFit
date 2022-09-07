@@ -10,11 +10,18 @@ const likes = require("./routes/api/likes")
 const bodyParser = require('body-parser');
 const keys = require('./config/keys')
 
+// import for express
+
+const path = require('path');
+
 
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch(err => console.log(err));
+
+app.use(passport.initialize());
+require("./config/passport")(passport);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -30,6 +37,13 @@ app.get("/", (req, res) => {
   res.send("Getfit");
 })
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
+
 
 const port = process.env.PORT || 5000;
 
@@ -42,16 +56,3 @@ app.use("/api/tweets", tweets)
 app.use("/api/likes", likes);
 
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-//Deployment code for Heroku (Production Build)
-
-const path = require('path');
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('frontend/build'));
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-  })
-}
