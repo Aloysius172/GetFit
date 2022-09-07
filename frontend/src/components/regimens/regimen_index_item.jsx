@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom'
 export const RegimenIndexItem = (props) => (
   <div className="regimen-index-item-container">
     <Link className="regimen-index-item-title" to={`/regimens/${props.regimen._id}`}>
-      {props.regimen.title}
+      {props.regimen.title} 
     </Link>
-    <div className="regimen-index-item-description">
+    {/* by {(props.users[props.regimen.user_id]).email} */}
+    {/* <div className="regimen-index-item-description">
       {props.regimen.description}
-    </div>
+    </div> */}
   </div>
 )
 
