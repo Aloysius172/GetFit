@@ -6,6 +6,13 @@ import Style from './exrc_info.css'
 class ExerciseInfo extends React.Component {
 
     render() {
+        let musc;
+
+        if (this.props.exrc.muscle.length > 20) {
+            musc = this.props.exrc.muscle.slice(0, 20) + "...";
+        } else {
+            musc = this.props.exrc.muscle;
+        };
         let equip;
         if (this.props.exrc.equipment === "none") {
             equip = "None";
@@ -27,7 +34,7 @@ class ExerciseInfo extends React.Component {
 
                         <div className='exrc-info-muscles'>
                             <div className='exrc-modal-musc'>Muscle Groups</div>
-                          {this.props.exrc.muscle} 
+                          {musc} 
                         </div>
 
                         <div className='exrc-info-type'>

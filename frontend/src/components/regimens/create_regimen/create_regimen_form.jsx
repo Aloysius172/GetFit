@@ -197,6 +197,7 @@ class CreateRegimenForm extends React.Component {
                                                     {name(exerciseName.name)}
                                                 <br />
                                                     <div className='exercise-type-submit-list'>
+                                                        
                                                         {oldDiff(exerciseName.difficulty)}
                                                         {oldAsst(exerciseName.assisted)}
                                                     </div>

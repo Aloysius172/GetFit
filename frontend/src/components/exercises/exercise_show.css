@@ -49,7 +49,8 @@
   
 }
 
-.difficulty-label, .muscle-label, .type-label, .equipment-label, .description-label {
+.difficulty-label, .muscle-label, .type-label, .equipment-label,
+ .description-label, .description-diff, .description-asst {
   color:goldenrod ;
   font-size: 35px;
   padding-bottom: 5px;
@@ -73,4 +74,11 @@
   color:#E94560 ;
 }
 
+.footer-container-show {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 80px;
+}
 
