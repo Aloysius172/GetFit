@@ -9,7 +9,7 @@ const tweets = require("./routes/api/tweets")
 const likes = require("./routes/api/likes")
 const bodyParser = require('body-parser');
 const keys = require('./config/keys')
-const passport = require("passport");
+const passport = require('./config/passport');
 
 // import for express
 
