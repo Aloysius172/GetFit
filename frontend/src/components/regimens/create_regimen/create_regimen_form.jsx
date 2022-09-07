@@ -2,6 +2,9 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import ExerciseItemContainer from './exercise_item/exercise_item_container'
 import ExerciseItemContainer from './exercise_item/exercise_item_container';
+import { GiWeightLiftingUp } from '@react-icons/all-files/gi/GiWeightLiftingUp'
+import { AiOutlineTeam } from '@react-icons/all-files/ai/AiOutlineTeam'
+import { BsPerson } from '@react-icons/all-files/bs/BsPerson'
 
 
 class CreateRegimenForm extends React.Component {
@@ -109,6 +112,39 @@ class CreateRegimenForm extends React.Component {
             }
             return newName
         }
+
+        function oldDiff(oldDiff) {
+            let diff;
+            switch(oldDiff) {
+                case "Beginner": 
+                    diff = <div className='almost-done'> <GiWeightLiftingUp /></div>
+                break;
+                case "Intermediate":
+                    diff = <div className='almost-done'><GiWeightLiftingUp /> <GiWeightLiftingUp /></div>
+                break;
+                case "Advanced":
+                    diff = <div className='almost-done'><GiWeightLiftingUp /><GiWeightLiftingUp /><GiWeightLiftingUp /></div>;
+                    break;
+                default:
+                    diff = <div className='almost-done'> <GiWeightLiftingUp /> <GiWeightLiftingUp /></div>;
+            }
+            return diff;
+        }
+
+        function oldAsst(oldAsst) {
+            let asst;
+            switch (oldAsst) {
+                case true:
+                    asst = <div className='almost-done-2'> <AiOutlineTeam/></div>
+                    break;
+                case false:
+                    asst = <div className='almost-done-2'> <BsPerson /> </div>
+                    break;
+                default:
+                    <div className='almost-done-2'> <BsPerson /> </div>
+            }
+            return asst;
+        }
         // if(this.props.exercises) {
         // let exercises = this.props.exercises.map(exrc =>
         //     <ExerciseItem
@@ -160,8 +196,10 @@ class CreateRegimenForm extends React.Component {
                                                 <div>
                                                     {name(exerciseName.name)}
                                                 <br />
-                                                    {exerciseName.typeOfExercise}
-                                                    
+                                                    <div className='exercise-type-submit-list'>
+                                                        {oldDiff(exerciseName.difficulty)}
+                                                        {oldAsst(exerciseName.assisted)}
+                                                    </div>
                                                 </div>
                                                     <button className="button" id="remove-from-list" onClick={() => this.removeExercise(idx)}>Remove Exercise</button>
                                                     

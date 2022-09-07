@@ -53,9 +53,8 @@
 }
 
 .regimen-form {
-    position: fixed;
-    top: 200px;
-    left: 0;
+    top: -600px;
+    left: 100px;
     z-index: 0;
     width: 30%;
     height: 23px;
@@ -93,6 +92,7 @@
     left: 90px;
     min-height: 430px;
     box-shadow: 10px 10px;
+    padding-bottom: 50px;
 }
 
 #regimen-text-boxes {
@@ -117,10 +117,14 @@
     left: -60px;
     width: 260px;
     min-height: 150px;
-    display: block;
     background-color: rgb(104, 104, 109);
     z-index: 40;
     border-radius: 10%;
+        display: grid;
+            grid-template-columns: 100px 100px;
+            grid-row: auto auto;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
 }
 
 .button {
@@ -182,3 +186,18 @@
 .selected-spacer {
     height: 20000px;
 }
+
+.exercise-type-submit-list {
+    color: white;
+}
+
+.almost-done-2 {
+    display:inline;
+    float:left;
+}
+
+.almost-done {
+    display: inline;
+    float: left;
+}
+

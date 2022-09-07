@@ -5,6 +5,8 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom'
 import ItemStyle from './exercise_item.css'
 import { GiWeightLiftingUp } from '@react-icons/all-files/gi/GiWeightLiftingUp'
+import { AiOutlineTeam } from '@react-icons/all-files/ai/AiOutlineTeam'
+import { BsPerson } from '@react-icons/all-files/bs/BsPerson'
 
 class ExerciseItem extends React.Component {
     constructor(props) {
@@ -23,12 +25,13 @@ class ExerciseItem extends React.Component {
     // }
 
     render() {
+    
         let asst;
         let difficulty;
         if (this.props.exercise.assisted) {
-            asst = <p className='assisted-index'>Assisted</p>
+            asst = <p className='assisted-index'> Solo/ Assisted? : <br /> <AiOutlineTeam /></p>
         } else {
-            asst = <p className='assisted-index'>Solo</p>
+            asst = <p className='assisted-index'> Solo/ Assisted? : <br /><BsPerson /></p>
         }
 
         switch(this.props.exercise.difficulty) {
@@ -56,7 +59,7 @@ class ExerciseItem extends React.Component {
                     </h3>
                     <div className='spacer-index'>
                     </div>
-                    <h4 className='exercise-type-index'>Type of Exercise: {this.props.exercise.typeOfExercise}</h4>
+                    <h4 className='exercise-type-index'>Type of Exercise: <br /> {this.props.exercise.typeOfExercise}</h4>
                     <div className='spacer-index'>
                     </div>
     
