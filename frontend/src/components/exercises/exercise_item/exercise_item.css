@@ -24,7 +24,7 @@
 
 .index-container-text {
     position: relative;
-    top: -30px;
+    top: -10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -46,6 +46,10 @@
 
 .assisted-index {
     position: relative;
-    top: 30px;
+    top: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.assisted-index:hover {
+border-bottom: 2px solid white;
 }

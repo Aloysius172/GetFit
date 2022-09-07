@@ -1,0 +1,58 @@
+.exrc-info {
+    min-height: 250px;
+    min-width: 300px;
+    background-color: rgb(223, 110, 110);
+    border-radius: 10%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+#exercise-name-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 30px;
+    border-bottom: 2px solid rgb(17, 13, 141);
+}
+
+.exrc-modal-grid {
+    position: relative;
+    left: 40px;
+    top: 50px;
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-row: auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.close-modal-button-div {
+    position: relative;
+    left: 105px;
+    top: 80px;
+    background-color: rgb(44, 44, 205);
+    width: 80px;
+    border-radius: 10%;
+}
+
+.close-modal-button {
+    color: white;
+}
+
+.exrc-modal-diff {
+    border-bottom: 1px solid rgb(75, 100, 215);
+
+}
+
+.exrc-modal-musc {
+    border-bottom: 1px solid rgb(75, 100, 215);
+}
+
+.exrc-modal-type {
+    border-bottom: 1px solid rgb(75, 100, 215);
+}
+
+.exrc-modal-equip {
+    border-bottom: 1px solid rgb(75, 100, 215);
+}
