@@ -12,13 +12,7 @@ class ExerciseShow extends React.Component{
   }
 
   render(){
-    let asst;
     if(this.props.exercise)
-    if(this.props.exercise.assisted) {
-      asst = "Assisted";
-    } else {
-      asst = "Solo";
-    }
     return (
      <div className='exercise-show-container'>
       <div className='exercise-show-top'>
@@ -61,25 +55,6 @@ class ExerciseShow extends React.Component{
           <p className='description-content'>
             {this.props.exercise.description}
           </p>
-
-          <div className='footer-content'>
-            <div className='assisted-container'>
-              <h2 className='assisted-label'>
-                Solo or Assisted:
-              </h2>
-              <p className='assisted-content'>
-                  {asst}
-              </p>
-            </div>
-            <div className='difficulty-container'>
-              <h2 className='difficulty-label'>
-                Difficulty:
-              </h2>
-              <p className='difficulty-content'>
-                  {this.props.exercise.difficulty}
-              </p>
-            </div>
-          </div>
         </div>
         <div className='exercise-show-video'>
           <YoutubeEmbed embedId={this.props.exercise.video_id} />
