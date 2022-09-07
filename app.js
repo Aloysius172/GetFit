@@ -12,6 +12,7 @@ const regimens = require("./routes/api/regimens");
 const exercises = require("./routes/api/exercises");
 const tweets = require("./routes/api/tweets")
 const likes = require("./routes/api/likes")
+const User = require("./models/User")
 
 const keys = require('./config/keys')
 
