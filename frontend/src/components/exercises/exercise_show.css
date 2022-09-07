@@ -49,7 +49,7 @@
   
 }
 
-.difficulty-label, .muscle-label, .type-label, .equipment-label, .description-label, .assisted-label {
+.difficulty-label, .muscle-label, .type-label, .equipment-label, .description-label {
   color:goldenrod ;
   font-size: 35px;
   padding-bottom: 5px;
@@ -57,9 +57,7 @@
 .difficulty-content,
 .muscle-content,
 .type-content,
-.equipment-content,
-.description-content,
-.assisted-content{
+.equipment-content{
   color: white;
   font-size: 25px;
 }
@@ -73,14 +71,6 @@
   font-weight: bold;
   align-self: center;
   color:#E94560 ;
-}
-
-.footer-content {
-  position: relative;;
-  top: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 

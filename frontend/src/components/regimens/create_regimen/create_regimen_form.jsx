@@ -76,7 +76,6 @@ class CreateRegimenForm extends React.Component {
     // Handle form submission
     handleSubmit(e) {
         e.preventDefault();
-        // this.setState({errors: {}})
 
         let regimen = {
             user_id: this.state.user_id,
@@ -86,13 +85,6 @@ class CreateRegimenForm extends React.Component {
         };
 
         this.props.createRegimen(regimen);
-        // if(this.state.errors === {}) {
-        this.setState({ exercise: [],
-                        title: "",
-                        description: "",
-                         })
-        // }
-
     }
 
 
