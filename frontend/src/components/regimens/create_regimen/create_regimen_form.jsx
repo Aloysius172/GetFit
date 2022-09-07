@@ -1,7 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import ExerciseItemContainer from './exercise_item/exercise_item_container'
-import ExerciseItem from './exercise_item/exercise_item';
+import ExerciseItemContainer from './exercise_item/exercise_item_container';
+import { GiWeightLiftingUp } from '@react-icons/all-files/gi/GiWeightLiftingUp'
+import { AiOutlineTeam } from '@react-icons/all-files/ai/AiOutlineTeam'
+import { BsPerson } from '@react-icons/all-files/bs/BsPerson'
 
 
 class CreateRegimenForm extends React.Component {
@@ -65,7 +68,7 @@ class CreateRegimenForm extends React.Component {
     removeExercise = (idx) => {
 
         const newExercises = Object.assign([], this.state.exercise)
-        newExercises.splice(idx)
+        newExercises.splice(idx, 1)
         this.setState({exercise: newExercises})
 
     }
@@ -100,6 +103,48 @@ class CreateRegimenForm extends React.Component {
     }
 
     render() {
+        function name(name) {
+            let newName;
+            if(name.length > 7) {
+                newName = name.slice(0, 7) + "..."
+            } else {
+                newName = name;
+            }
+            return newName
+        }
+
+        function oldDiff(oldDiff) {
+            let diff;
+            switch(oldDiff) {
+                case "Beginner": 
+                    diff = <div className='almost-done'> <GiWeightLiftingUp /></div>
+                break;
+                case "Intermediate":
+                    diff = <div className='almost-done'><GiWeightLiftingUp /> <GiWeightLiftingUp /></div>
+                break;
+                case "Advanced":
+                    diff = <div className='almost-done'><GiWeightLiftingUp /><GiWeightLiftingUp /><GiWeightLiftingUp /></div>;
+                    break;
+                default:
+                    diff = <div className='almost-done'> <GiWeightLiftingUp /> <GiWeightLiftingUp /></div>;
+            }
+            return diff;
+        }
+
+        function oldAsst(oldAsst) {
+            let asst;
+            switch (oldAsst) {
+                case true:
+                    asst = <div className='almost-done-2'> <AiOutlineTeam/></div>
+                    break;
+                case false:
+                    asst = <div className='almost-done-2'> <BsPerson /> </div>
+                    break;
+                default:
+                    <div className='almost-done-2'> <BsPerson /> </div>
+            }
+            return asst;
+        }
         // if(this.props.exercises) {
         // let exercises = this.props.exercises.map(exrc =>
         //     <ExerciseItem
@@ -110,38 +155,63 @@ class CreateRegimenForm extends React.Component {
         //     />)
     // }
         return (
+        <div id="regimen-submit-master-container">
             <div className="regimen-submit-container">
-    
                 <form className='regimen-form' onSubmit={this.handleSubmit}>
                     <div className='regimen-form-interior'>
-                        <input type="text"
-                            value={this.state.title}
-                            onChange={this.update('title')}
-                            placeholder="Title"
-                            className='submission-field'
-                        />
-                        <input type="textarea"
-                            value={this.state.description}
-                            onChange={this.update('description')}
-                            placeholder="Description"
-                            className='description-field'
-                        />
+                           <p className='make-a-regiment'>
+                                Make a Regimen!
+                           </p>
+                        <div id="regimen-text-boxes">
+                                
+                            <div id="regimen-submit-text-container">
+    
+                                <input type="text"
+                                    value={this.state.title}
+                                    onChange={this.update('title')}
+                                    placeholder="Title"
+                                    className='submission-field'
+                                />
+                            </div>
+                                <textarea type="textarea"
+                                    id="description-field"
+                                    value={this.state.description}
+                                    onChange={this.update('description')}
+                                    placeholder="Description"
+                                    className='description-field'
+                                />
+                        </div>
                         <div className='submit-regimen-errors'>
                             {this.renderErrors()}
                         </div>
-                        <div className="selected-exercises-container">
-                            <div className='spacer'></div>
-                            <h3>Selected Exercises</h3>
-                            <ul className='selected-exercises'>
-                                {this.state.exercise.map((exerciseName, idx) => 
-                                    <li>
-                                            <div>{exerciseName.name}-{exerciseName.typeOfExercise}<button onClick={() => this.removeExercise(idx)}>Remove Exercise</button></div>
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
-                        <div className='submit-regimen-button'>
-                            <input className='regimen-submit' type="submit" value="Create Regimen!" />
+                        <div id="submit-footer-container">
+                            <div id="footer-sub-container">
+                                <div className="selected-exercises-container">
+                                    <div className='spacer'></div>
+                                    <h3>Selected Exercises</h3>
+                                    <div id="selected-box">
+                                    <ul className='selected-exercises'>
+                                        {this.state.exercise.map((exerciseName, idx) => 
+                                            <li className="selected-exercises-individuals">
+                                                <div>
+                                                    {name(exerciseName.name)}
+                                                <br />
+                                                    <div className='exercise-type-submit-list'>
+                                                        {oldDiff(exerciseName.difficulty)}
+                                                        {oldAsst(exerciseName.assisted)}
+                                                    </div>
+                                                </div>
+                                                    <button className="button" id="remove-from-list" onClick={() => this.removeExercise(idx)}>Remove Exercise</button>
+                                                    
+                                            </li>
+                                        )}
+                                    </ul>
+                                    </div>
+                                </div>
+                                <div className='submit-regimen-button'>
+                                    <input className='button' id="submit-button" type="submit" value="Create Regimen!" />
+                                </div>
+                            </div>
                         </div>
                         {/* <button onClick={() => this.addExercise(this.props.exercises[0].name)}>add exercise</button> */}
                     </div>
@@ -149,7 +219,7 @@ class CreateRegimenForm extends React.Component {
                 <div className='spacer'></div>
                 <div className='exercises-on-regimen-form'>
                     {this.props.exercises.map(exrc =>
-                        <ExerciseItem
+                        <ExerciseItemContainer
                             exrc={exrc}
                             key={exrc.id}
                             addExercise={this.addExercise}
@@ -158,6 +228,7 @@ class CreateRegimenForm extends React.Component {
                     )}
                 </div>
             </div>
+        </div>
         );
         }
     }

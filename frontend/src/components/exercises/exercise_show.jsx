@@ -23,7 +23,7 @@ class ExerciseShow extends React.Component{
       <div className='top-info'>
         <div className='exercise-show-muscle'>
           <h3 className='muscle-label'>
-            Muscle:
+            Muscle(s):
           </h3>
           <span className='muscle-content'>
             {this.props.exercise.muscle}
