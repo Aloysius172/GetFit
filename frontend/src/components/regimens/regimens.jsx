@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchRegimens } from "../../actions/regimen_actions";
 import { getUsers } from '../../actions/user_actions'
-import { RegimenIndexItem } from "./regimen_index_item";
+import  RegimenIndexItemContainer  from "./regimen_index_item_container";
+import './regimens.css'
 
 
 class Regimens extends React.Component {
@@ -23,9 +24,9 @@ class Regimens extends React.Component {
                     Welcome to the Regimens Page!
                     <Link className="create-regimen-link" to={'/regimens/create'}>Create a new Regimen!</Link>
                 </div>
-                <div>
+                <div className="create-regimen-item-div">
                     {this.props.regimens.map((regimen, i) => 
-                    <RegimenIndexItem key={i} regimen={regimen} users={this.props.users} />)}
+                    <RegimenIndexItemContainer key={i} regimen={regimen} users={this.props.users} />)}
                 </div>
                 {/* <div>
                     {this.props.users.map(user => user.email)}

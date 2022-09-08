@@ -1,18 +1,33 @@
 import { Link } from 'react-router-dom'
-export const RegimenIndexItem = (props) => (
-  <div className="regimen-index-item-container">
-    <Link className="regimen-index-item-title" to={`/regimens/${props.regimen._id}`}>
-      {props.regimen.title} 
-    </Link>
-    {/* by {(props.users[props.regimen.user_id]).email} */}
-    {/* <div className="regimen-index-item-description">
-      {props.regimen.description}
-    </div> */}
-  </div>
-)
+import React from 'react'
+import './regimen_index_item.css'
 
-  // < h3 className = "exercise-index-name-form" >
-  //   <Link className='exercise-index-link-name-form' to={`/exercises/${this.props.link}`}>
-  //     {this.props.exercise.name}
-  //   </Link>
-  //                   </ >
+
+class RegimenIndexItem extends React.Component{
+  constructor(props){
+    super(props)
+  }
+  
+
+  render(){
+
+    let muscles = this.props.regimen.exercise_ids.map(exercise => exercise.muscle ? exercise.muscle : null)
+    
+    let uniqueMuscles = [...new Set(muscles)]
+
+
+
+    return(
+      <div className="regimen-index-item-container">
+        <Link className="regimen-index-item-title" to={`/regimens/${this.props.regimen._id}`}>
+          {this.props.regimen.title}
+        </Link>
+        <div className='regimen-index-item-muscles'>
+          {uniqueMuscles}
+        </div>
+      </div>
+    )
+  }
+}
+
+export default RegimenIndexItem;
