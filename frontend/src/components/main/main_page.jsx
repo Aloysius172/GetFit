@@ -12,9 +12,9 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="arm-left">
-          <a href="http://localhost:3000/#/exercises">
+          <Link to="/exercises">
             <div id="arm-left-link" ></div>
-          </a>
+          </Link>
         </div>
 
         <div id="arm-left-blurb">
@@ -24,9 +24,9 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="arm-right">
-          <a href="http://localhost:3000/#/exercises">
+          <Link to="/exercises">
             <div id="arm-right-link"></div>
-          </a>
+          </Link>
         </div>
 
         <div id="arm-right-blurb">
@@ -36,9 +36,9 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="chest">
-          <a href="http://localhost:3000/#/exercises">
+          <Link to="/exercises">
             <div id="chest-link"></div>
-          </a>
+          </Link>
         </div>
 
         <div id="chest-blurb">
@@ -48,9 +48,9 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="abs">
-          <a href="http://localhost:3000/#/exercises">
+          <Link to="/exercises">
             <div id="abs-link"></div>
-          </a>
+          </Link>
         </div>
 
         <div id="abs-blurb">
@@ -60,9 +60,9 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="leg-left">
-          <a href="http://localhost:3000/#/exercises">
+          <Link href="/exercises">
             <div id="leg-left-link"></div>
-          </a>
+          </Link>
         </div>
         <div id="leg-left-blurb">
           <p className='empty-blurb'>There are plenty of muscle groups in your
@@ -71,9 +71,9 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="leg-right">
-          <a href="http://localhost:3000/#/exercises">
+          <Link href="/exercises">
             <div id="leg-right-link"></div>
-          </a>
+          </Link>
         </div>
 
         <div id="leg-right-blurb">

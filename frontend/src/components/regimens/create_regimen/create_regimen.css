@@ -169,10 +169,10 @@
     left: 15px;
 }
 
-.selected-exercises {
+/* .selected-exercises {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-}
+} */
 
 #remove-from-list {
     background-color: #abc9ff;
