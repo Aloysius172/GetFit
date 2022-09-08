@@ -60,7 +60,7 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="leg-left">
-          <Link href="/exercises">
+          <Link to="/exercises">
             <div id="leg-left-link"></div>
           </Link>
         </div>
@@ -71,7 +71,7 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
 
 
         <div id="leg-right">
-          <Link href="/exercises">
+          <Link to="/exercises">
             <div id="leg-right-link"></div>
           </Link>
         </div>
