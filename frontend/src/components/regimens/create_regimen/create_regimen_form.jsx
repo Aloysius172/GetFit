@@ -79,6 +79,7 @@ class CreateRegimenForm extends React.Component {
 
         let regimen = {
             user_id: this.state.user_id,
+            creator: this.state.creator,
             title: this.state.title,
             description: this.state.description,
             exercise_ids: this.state.exercise

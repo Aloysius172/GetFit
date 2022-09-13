@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 
-export const fetchRegimen = (regimenId) => (
-  axios.get(`/api/regimens/${regimenId}`)
-)
+export const fetchRegimen = regimenId => {
+  return axios.get(`/api/regimens/${regimenId}`)
+}
 
 export const fetchRegimens = () => (
   axios.get('/api/regimens')
