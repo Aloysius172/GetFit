@@ -1,5 +1,55 @@
+.regimens-index-container{
+    background-color: #0F3460;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    padding-bottom: 30px;
+
+}
 
 .create-regimen-link {
     border-style: double;
     padding-left: 1rem;
+}
+
+.create-regimen-item-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 50px; */
+    column-gap: 40px;
+    position: relative;
+    margin: 80px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.regimen-single-grid {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+/* .col-1-spacer {
+    height: 30px
+}
+
+.col-2-spacer {
+
+}
+
+.col-3-spacer {
+ height: 80px
+} */
+
+.regimens-index-intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(191, 38, 97);
+    width: 200px;
+    align-self: center;
+    position: relative;
+    left: 650px;
+    border-radius: 10%;
+    padding: 20px;
+    top: 90px;
+    border: 2px solid bisque;
 }

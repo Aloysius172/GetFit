@@ -9,7 +9,7 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      errors: {}
+      // errors: {}
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,7 +24,14 @@ class LoginForm extends React.Component {
     }
 
     // Set or clear errors
-    this.setState({ errors: this.props.errors })
+    // this.setState({ errors: this.props.errors })
+  }
+  // componentDidUpdate(){
+  //   this.renderErrors()
+  // }
+
+  componentWillUnmount() {
+    this.props.deleteErrors();
   }
 
   // Handle field updates (called in the render method)
@@ -52,9 +59,9 @@ class LoginForm extends React.Component {
   renderErrors() {
     return (
       <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
+        {Object.keys(this.props.errors).map((error, i) => (
           <li className='errors' key={`error-${i}`}>
-            {this.state.errors[error]}
+            {this.props.errors[error]}
           </li>
         ))}
       </ul>
@@ -76,6 +83,10 @@ class LoginForm extends React.Component {
               placeholder="Email"
               className='submission-field'
             />
+          <div>
+            {this.props.errors.email}
+          </div>
+            
             <div className='spacer' />
             <input type="password"
               value={this.state.password}
@@ -83,12 +94,15 @@ class LoginForm extends React.Component {
               placeholder="Password"
               className='submission-field'
             />
+            <div>
+              {this.props.errors.password}
+            </div>
             <div className='spacer' />
             <div className='submit-button'>
 
               <input className='login-signup-submit' type="submit" value="Submit" />
             </div>
-            {this.renderErrors()}
+            {/* {this.renderErrors()} */}
           </div>
         </form>
         <div className='modal-footer-login'>

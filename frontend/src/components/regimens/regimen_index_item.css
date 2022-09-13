@@ -1,0 +1,79 @@
+.regimen-index-item-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: #E94560;
+  border-radius: 10px;
+  width: 300px;
+  min-height: 30px;
+  
+}
+
+.regimen-index-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.reg-shw-exrc-list {
+  min-width: 120px;
+  padding-right: 80px;
+  position: relative;
+  left: 30px;
+}
+
+.reg-shw-musc-list {
+  max-width: 100px;
+}
+
+.regimen-index-item-container {
+  padding: 20px;
+}
+
+.regi-auth {
+  align-self: center;
+}
+
+.regimen-index-item-title {
+  align-self: center;
+}
+
+.regi-idx-title-auth {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(145, 132, 219);
+  border-radius: 10%;
+  min-height: 30px;
+  min-width: 20px;
+  padding: 5px;
+  
+}
+
+.regi-idx-exrc-title {
+  align-self: center;
+  position: relative;
+  left: 30px;
+  border-bottom: 2px solid white;
+  width: 70px;
+}
+
+
+.regi-idx-exrc-cont {
+  min-width: 100px;
+}
+
+.regi-idx-musc-cont {
+  min-width: 150px;
+}
+
+.regi-idx-musc-title {
+  align-self: center;
+  border-bottom: 2px solid white;
+  max-width: 110px;
+  position: relative;
+}
+
