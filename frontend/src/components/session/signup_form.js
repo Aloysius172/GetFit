@@ -13,16 +13,16 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearedErrors = false;
+    // this.clearedErrors = false;
   }
 
-  componentDidMount() {
-    if (this.props.signedIn === true) {
-      this.props.history.push('/login');
-    }
+  // componentDidMount() {
+  //   if (this.props.signedIn === true) {
+  //     this.props.history.push('/login');
+  //   }
 
-    // this.setState({ errors: this.props.errors })
-  }
+  //   // this.setState({ errors: this.props.errors })
+  // }
 
   update(field) {
     return e => this.setState({
@@ -61,7 +61,7 @@ class SignupForm extends React.Component {
   }
 
   render() {
-
+    // debugger
     return (
       <div className="signup-form-container">
         <form className='signup-form' onSubmit={this.handleSubmit}>
@@ -75,9 +75,9 @@ class SignupForm extends React.Component {
               placeholder="Email"
               className='submission-field'
             />
-            {/* <div>
+            <div>
               {this.props.errors.email}
-            </div> */}
+            </div>
             <div className='spacer' />
             <input type="text"
               value={this.state.username}
@@ -85,9 +85,9 @@ class SignupForm extends React.Component {
               placeholder="Username"
               className='submission-field'
             />
-            {/* <div>
+            <div>
               {this.props.errors.username}
-            </div> */}
+            </div>
             <div className='spacer' />
             <input type="password"
               value={this.state.password}
@@ -95,9 +95,9 @@ class SignupForm extends React.Component {
               placeholder="Password"
               className='submission-field'
             />
-            {/* <div>
+            <div>
               {this.props.errors.password}
-            </div> */}
+            </div>
             <div className='spacer' />
             <input type="password"
               value={this.state.password2}
@@ -105,15 +105,15 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
               className='submission-field'
             />
-            {/* <div>
+            <div>
               {this.props.errors.password2}
-            </div> */}
+            </div>
             <div className='spacer' />
             <div className='submit-button'>
-              {/* <div>{this.renderErrors()}</div> */}
+
               <input className='login-signup-submit' type="submit" value="Submit" />
             </div>
-            
+            {this.renderErrors()}
           </div>
         </form>
         <div className='modal-footer-signup'>
