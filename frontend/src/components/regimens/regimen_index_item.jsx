@@ -4,10 +4,6 @@ import './regimen_index_item.css'
 
 
 class RegimenIndexItem extends React.Component{
-  constructor(props){
-    super(props)
-  }
-  
 
   render(){
 

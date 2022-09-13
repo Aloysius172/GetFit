@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
-
+  
   const sessionLinks = () => (
     <div>
       <div className="greeting">
