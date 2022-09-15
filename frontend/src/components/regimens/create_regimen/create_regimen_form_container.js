@@ -12,7 +12,7 @@ const mSTP = (state) => {
         exercises: exercises,
         errors: state.errors.session,
         currentUserId: state.session.user.id,
-        creator: state.session.user.username
+        username: state.session.user.username
     };
 };
 

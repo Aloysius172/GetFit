@@ -8,9 +8,9 @@ class RegimenIndexItem extends React.Component{
     super(props)
   }
 
-  componentDidMount() {
-    this.props.fetchUser(this.props.regimen.user_id);
-  }
+  // componentDidMount() {
+  //   this.props.fetchUser(this.props.regimen.user_id);
+  // }
   
 
   render(){

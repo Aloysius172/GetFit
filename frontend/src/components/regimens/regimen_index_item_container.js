@@ -8,7 +8,7 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) => {
     return {
-        fetchUser: (userId) => dispatch(getUser(userId))
+        // fetchUser: (userId) => dispatch(getUser(userId))
     }
 }
 
