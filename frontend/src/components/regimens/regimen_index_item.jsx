@@ -9,7 +9,7 @@ class RegimenIndexItem extends React.Component{
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.regimen.user_id);
+    
   }
   
 
@@ -20,6 +20,29 @@ class RegimenIndexItem extends React.Component{
     let uniqueMuscles = [...new Set(muscles)];
     let user = "Steve"
     let muscTitle = "Muscle Groups: "
+    let diff = this.props.regimen.exercise_ids.map(exercise => exercise.difficulty ? exercise.difficulty + " " : " ");
+    let sum = 0;
+    let x = 0;
+    let y = 0;
+    for(let i = 0; i < diff.length; i++) {
+      switch(diff[i]) {
+        case "Beginner":
+          x = 1
+          break;
+        case "intermediate":
+          x = 2
+          break;
+        case "Advanced":
+          x = 3
+          break;
+        default:
+          x = 0
+          break;  
+      }
+      y++;
+      sum += x;
+    }
+    let avg = sum;
     
 
 

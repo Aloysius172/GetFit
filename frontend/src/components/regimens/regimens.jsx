@@ -11,13 +11,13 @@ class Regimens extends React.Component {
 
     componentDidMount(){
         this.props.fetchRegimens()
-        this.props.getUsers()
+        // this.props.getUsers()
         // fetchUserRegimen()
         
     }
 
     render () {
-        if(this.props.regimens && this.props.users) {
+        if(this.props.regimens) {
         let regimens = this.props.regimens.map(regimen => regimen)
             let colOne;
             let colTwo;
@@ -40,21 +40,21 @@ class Regimens extends React.Component {
                 colOne = col1.map((regimen, i) => {
                         return(
                             <RegimenIndexItemContainer
-                                key={i} regimen={regimen} users={this.props.users}
+                                key={i} regimen={regimen} 
                             />
                         )
                 });
                 colTwo = col2.map((regimen, i) => {
                     return (
                         <RegimenIndexItemContainer
-                            key={i} regimen={regimen} users={this.props.users}
+                            key={i} regimen={regimen}
                         />
                     )
                 });
                 colThree = col3.map((regimen, i) => {
                     return (
                         <RegimenIndexItemContainer
-                            key={i} regimen={regimen} users={this.props.users}
+                            key={i} regimen={regimen}
                         />
                     )
                 });
@@ -109,7 +109,6 @@ const mDTP = dispatch => {
     // debugger
     return {
         fetchRegimens: () => dispatch(fetchRegimens()),
-        getUsers: () => dispatch(getUsers())
         // fetchUserRegimen: (userId) => dispatch(fetchUserRegimen(userId))
     }
 }
