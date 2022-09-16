@@ -101,7 +101,7 @@ const mSTP = (state) => {
     // debugger
     return {
         regimens: Object.values(state.entities.regimens),
-        users: Object.values(state.entities.users)
+        // users: Object.values(state.entities.users)
     }
 }
 
