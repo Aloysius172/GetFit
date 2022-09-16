@@ -13,7 +13,7 @@ class EditRegimenForm extends React.Component {
 
         this.state = {
             user_id: this.props.regimen.user_id,
-            // creator: this.props.regimen.creator,
+            creator: this.props.regimen.creator,
             title: this.props.regimen.title,
             description: this.props.regimen.description,
             exercise: this.props.regimen.exercise_ids,
@@ -163,7 +163,7 @@ class EditRegimenForm extends React.Component {
                 <form className='regimen-form' onSubmit={this.handleSubmit}>
                     <div className='regimen-form-interior'>
                            <p className='make-a-regiment'>
-                                Make a Regimen!
+                                Update Your Regimen!
                            </p>
                         <div id="regimen-text-boxes">
                                 
@@ -213,7 +213,7 @@ class EditRegimenForm extends React.Component {
                                     </div>
                                 </div>
                                 <div className='submit-regimen-button'>
-                                    <input className='button' id="submit-button" type="submit" value="Create Regimen!" />
+                                    <input className='button' id="submit-button" type="submit" value="Update Regimen!" />
                                 </div>
                             </div>
                         </div>
