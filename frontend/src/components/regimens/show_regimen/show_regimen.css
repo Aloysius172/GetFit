@@ -1,0 +1,150 @@
+.regi-shw-pg {
+    background-color: #0f3460;
+    width: 96%;
+    height: 100%;
+    padding-bottom: 400px;
+    border-left: 30px solid #e94560;
+    border-right: 30px solid #e94560;
+}
+
+
+.regi-shw-pg-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40px;
+}
+
+.reg-shw-title {
+    color: #daa520;
+    font-size: xx-large;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reg-shw-title-underline {
+    border-top: 1px solid gray;
+    color: rgba(167, 175, 182, 0.211);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+}
+
+.reg-shw-creator {
+    color: #e94560;
+    font-size: xx-large;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reg-shw-creator-underline {
+    border-top: 1px solid gray;
+    color: rgba(167, 175, 182, 0.211);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+}
+
+.reg-shw-title-auth {
+    position: relative;
+    top: 40px;
+}
+
+.reg-shw-title-auth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 400px;
+}
+
+.regi-exercises-desc-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 120px;
+}
+
+.regi-desc {
+    color: #abc9ff;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid white;
+    width: 250px;
+}
+
+.reg-shw-desc-body {
+    width: 250px;
+    overflow-wrap: break-word;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(12, 131, 235);
+    font-size: large;
+}
+
+.regi-shw-exrc {
+    position: relative;
+    top: 80px;
+    align-items: center;
+    justify-content: center;
+}
+
+.regi-shw-exrc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 120px;
+    row-gap: 30px;
+    position: relative;
+    top: 30px;
+    left: 30px;
+}
+
+.regi-shw-exrc-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid beige;
+    color: #daa520;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.regi-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.regi-shw-exrc-hard {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    color:rgba(235, 21, 103, 0.807);
+    font-weight: bold;
+    font-size: x-large;
+    position: relative;
+    left: 42%;
+    width: 200px;
+    border-left: 2px solid rgb(206, 194, 194);
+    border-right: 2px solid rgb(206, 194, 194);
+}
+
+.regi-shw-exrc-desc {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #abc9ff;
+    width: 150px;
+}
+
+.exercise-index-link-name-form {
+    position: relative;
+    bottom: -1px;
+}

@@ -24,6 +24,7 @@ router.post('/', (req, res) => {
     
     const newRegimen = new Regimen({
         user_id: req.body.user_id,
+        creator: req.body.creator,
         title: req.body.title,
         description: req.body.description,
         exercise_ids: req.body.exercise_ids
