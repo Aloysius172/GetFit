@@ -13,7 +13,7 @@ class CreateRegimenForm extends React.Component {
 
         this.state = {
             user_id: props.currentUserId,
-            creator: "Steve",
+            creator: props.username,
             title: '',
             description: '',
             exercise: [],
@@ -79,7 +79,7 @@ class CreateRegimenForm extends React.Component {
 
         let regimen = {
             user_id: this.state.user_id,
-            creator: "Steve",
+            creator: this.state.creator,
             title: this.state.title,
             description: this.state.description,
             exercise_ids: this.state.exercise

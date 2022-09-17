@@ -9,6 +9,7 @@ import ExerciseShow from "../components/exercises/exercise_show"
 import Regimens from './regimens/regimens';
 import Modal from './modal/modal';
 import RegimenShowContainer from './regimens/show_regimen/show_regimen_container';
+import EditRegimenContainer from './regimens/edit_regimen/edit_regimen_container';
 
 import './app_css_reset.css';
 
@@ -40,7 +41,7 @@ const App = () => (
       <Route exact path="/exercises/:exerciseId" component={ExerciseShow} />
       <ProtectedRoute exact path="/regimens" component={Regimens} />
       <ProtectedRoute exact path="/regimens/:regimenId" component={RegimenShowContainer} />
-
+      <ProtectedRoute exact path="/regimens/updateRegimen/:regimenId" component={EditRegimenContainer} />
       <ProtectedRoute exact path="/users" component={user_index_container} />
       {/* <AuthRoute exact path="/" component={MainPageContainer} /> */}
 
