@@ -1,0 +1,41 @@
+.delete-regi-modal {
+    min-width: 330px;
+    min-height: 150px;
+    background-color: rgb(103, 127, 234);
+    border-radius: 10%;
+}
+
+.are-you-sure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 20px;
+    border-bottom: 2px solid rgb(17, 13, 141);
+}
+
+.delete-regi-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    top: 30px;
+    font-size:larger;
+    border-bottom: .5px solid rgb(249, 249, 249);
+}
+
+.regi-delete-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 50px;
+}
+
+#cancel-button {
+    height: 30px;
+}
+
+#delete-button {
+    height: 30px;
+}
