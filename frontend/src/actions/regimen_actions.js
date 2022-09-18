@@ -38,7 +38,7 @@ export const updateRegimen = (regimen) => dispatch => RegimenUtil.updateRegimen(
 
 export const createRegimen = (formRegimen) => dispatch => {
   return RegimenUtil.createRegimen(formRegimen)
-  .then(regimen => dispatch(receiveRegimen(regimen)))
+  .then(regimen => dispatch(receiveRegimen(regimen.data)))
 }
 
 export const deleteRegimens = (regimenId) => dispatch => {

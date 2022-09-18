@@ -22,6 +22,6 @@ export const deleteRegimen = (regimenId) => {
 // )
 
 
-export const updateRegimen = (regimen) => (
-  axios.patch(`/api/regimens/${regimen.id}`, regimen)
-)
+export const updateRegimen = (regimen) => {
+  return axios.patch(`/api/regimens/${regimen.id}`, regimen)
+}
