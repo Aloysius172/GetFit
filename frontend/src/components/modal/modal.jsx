@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import ExerciseInfoContainer from './exrc_info_container.js';
+import DeleteConfirmContainer from './delete_confirm/delete_confirm_container.js'
 
 function Modal({ modal, closeModal }) {
 
@@ -18,6 +19,9 @@ function Modal({ modal, closeModal }) {
     } else if(modal[0] === "exc_info") {
         component = <ExerciseInfoContainer 
                 exrc={modal[1]}/>;
+    } else if(modal[0] === "delete_confirm") {
+        component = <DeleteConfirmContainer
+                title={modal[1]}/>;
     }
     // switch (modal) { //[string, info]
     //     case 'login':
