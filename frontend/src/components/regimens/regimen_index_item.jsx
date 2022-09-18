@@ -7,8 +7,10 @@ import { HiOutlineTrash } from '@react-icons/all-files/hi/HiOutlineTrash'
 class RegimenIndexItem extends React.Component{
   constructor(props){
     super(props)
-    this.calcAvg = this.calcAvg.bind(this)
+    this.calcAvg = this.calcAvg.bind(this);
     this.renderDelete = this.renderDelete.bind(this);
+    this.calcTotal = this.calcTotal.bind(this);
+    this.createShowExercises = this.createShowExercises.bind(this)
   }
 
   componentDidMount() {
@@ -49,13 +51,49 @@ class RegimenIndexItem extends React.Component{
     diffWord = diff + ""
     return diffWord.slice(0,4);
   }
+
+  calcTotal(exrcs, uniqExrcs) {
+    let exrcShow = []
+
+    for(let i = 0; i < uniqExrcs.length; i++) {
+      let exrcItem = [uniqExrcs[i], 0];
+      for(let j = 0; j < exrcs.length; j++) {
+        if(exrcs[j] === uniqExrcs[i]) {
+          exrcItem[1]++;
+        }
+      }
+      exrcShow.push(exrcItem);
+    }
+    return exrcShow
+  }
+
+  createShowExercises(exrcArr) {
+    let showArr = [];
+    for(let i = 0; i < exrcArr.length; i++) {
+      let showArrItem = [];
+      if(exrcArr[i][1] > 1) {
+      exrcArr[i][0] = exrcArr[i][0] + " (";
+      exrcArr[i].push("), ");
+      showArr.push(exrcArr[i]);
+      } else {
+        exrcArr[i][0] = exrcArr[i][0] + ", ";
+        showArr.push(exrcArr[i][0]);
+      }
+    }
+    return showArr;
+  }
+
+
   
 
   render(){
 
     let muscles = this.props.regimen.exercise_ids.map(exercise => exercise.muscle ? exercise.muscle + " " : " ");
-    let exercises = this.props.regimen.exercise_ids.map(exercise => exercise.name ? exercise.name + ", \n": " ");
+    let exercises = this.props.regimen.exercise_ids.map(exercise => exercise.name ? exercise.name: " ");
     let uniqueMuscles = [...new Set(muscles)];
+    let uniqueExercises = [...new Set(exercises)];
+    let countedExercises = this.calcTotal(exercises, uniqueExercises)
+    let showExercises = this.createShowExercises(countedExercises);
     let user = "Steve"
     let muscTitle = "Muscle Groups: "
     let diff = this.props.regimen.exercise_ids.map(exercise => exercise.difficulty ? exercise.difficulty : " ");
@@ -89,7 +127,7 @@ class RegimenIndexItem extends React.Component{
               Exercises:
             </div>
             <div className='reg-shw-exrc-list'>
-              {exercises}
+              {showExercises}
             </div>
           </div>
 
