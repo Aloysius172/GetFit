@@ -7,6 +7,12 @@ const TweetSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "users"
     }, 
+    regimen_id: {
+        type: Schema.Types.ObjectId,
+        // type: String,
+        ref: "regimens",
+        // required: true,
+    },
     text: {
         type: String,
         require: true

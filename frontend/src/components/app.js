@@ -25,6 +25,13 @@ import user_index_container from './user/user_index_container';
 
 import MainPageContainer from './main/main_page_container';
 
+import TweetsContainer from './tweets/tweets_container';
+// import ProfileContainer from './profile/profile_container';
+// import TweetComposeContainer from './tweets/tweet_compose_container';
+
+
+
+
 
 // console.log(ExerciseShow)
 
@@ -44,6 +51,10 @@ const App = () => (
       <ProtectedRoute exact path="/regimens/updateRegimen/:regimenId" component={EditRegimenContainer} />
       <ProtectedRoute exact path="/users" component={user_index_container} />
       {/* <AuthRoute exact path="/" component={MainPageContainer} /> */}
+
+      <Route exact path="/tweets" component={TweetsContainer} />
+      {/* <ProtectedRoute exact path="/profile" component={ProfileContainer} /> */}
+      {/* <Route exact path="/new_tweet" component={TweetComposeContainer} /> */}
 
       <Route exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/exercise/exerciseId" component={ExerciseIndex} />
