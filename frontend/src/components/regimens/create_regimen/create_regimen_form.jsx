@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 // import ExerciseItemContainer from './exercise_item/exercise_item_container'
 import ExerciseItemContainer from './exercise_item/exercise_item_container';
 import { GiWeightLiftingUp } from '@react-icons/all-files/gi/GiWeightLiftingUp'
@@ -86,6 +86,7 @@ class CreateRegimenForm extends React.Component {
         };
 
         this.props.createRegimen(regimen);
+        
     }
 
 

@@ -165,6 +165,9 @@ class RegimenShow extends React.Component {
                         </div>
                         </div>
                     </ul>
+                    <div className="Tweets">
+                            <TweetComposeContainer/>
+                    </div>
                     </div>
                 </div>
                 <div>

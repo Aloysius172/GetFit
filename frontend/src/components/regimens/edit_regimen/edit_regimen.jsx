@@ -84,10 +84,11 @@ class EditRegimenForm extends React.Component {
             creator: this.state.creator,
             title: this.state.title,
             description: this.state.description,
-            exercise_ids: this.state.exercise
+            exercise_ids: this.state.exercise,
+            id: this.props.regimen._id
         };
 
-        this.props.updateRegimen(regimen);
+        this.props.updateRegimen(regimen).then(() => this.props.history.push(`/regimens/${this.props.regimen._id}`));
     }
 
 
