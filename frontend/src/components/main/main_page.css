@@ -9,6 +9,12 @@
     top: 30px;
 }
 
+.main-page-cover {
+    height: 100%;
+    width: 100%;
+    background: #95a1aee3;
+}
+
 .greeting {
     background: #032d5ae3;
     position: absolute;
@@ -16,6 +22,7 @@
     right: 0px;
     bottom: 0px;
     left: 0px;
+    padding-bottom: 200px;
 }
 
 #arm-left {

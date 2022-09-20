@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../../actions/modal_actions';
 import DeleteConfirm from './delete_confirm.jsx';
+import { deleteRegimens } from '../../../actions/regimen_actions'
 
 const mSTP = (state) => {
     return {
@@ -11,6 +12,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
     return {
         closeModal: () => dispatch(closeModal()),
+        deleteRegimen: (id)=>dispatch(deleteRegimens(id)),
     }
 }
 

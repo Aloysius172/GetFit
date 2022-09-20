@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
   
   const sessionLinks = () => (
-    <div>
+    <div className='main-page-cover'>
       <div className="greeting">
         <div id="landing">
 

@@ -50,6 +50,9 @@
     justify-content: center;
     background-color: #0f3460;
     padding-bottom: 60px;
+    height: 100%;
+    width: 100%;
+    padding-right: 50px;
 }
 
 .regimen-form {
