@@ -14,20 +14,28 @@
 
 .regimen-index-item {
   display: flex;
-  align-items: center;
+  align-items:baseline;
   justify-content: space-between;
   padding-top: 20px;
 }
 
 .reg-shw-exrc-list {
   min-width: 120px;
-  padding-right: 80px;
-  position: relative;
-  left: 30px;
+  /* padding-right: 80px; */
+  /* position: relative; */
+  /* left: 30px; */
+  background-color: #0f3460;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255)
 }
 
 .reg-shw-musc-list {
   max-width: 100px;
+  background-color: #0f3460;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(255, 255, 255)
 }
 
 .regimen-index-item-container {
@@ -57,7 +65,6 @@
   align-self: center;
   position: relative;
   left: 30px;
-  border-bottom: 2px solid white;
   width: 70px;
 }
 
@@ -72,8 +79,52 @@
 
 .regi-idx-musc-title {
   align-self: center;
-  border-bottom: 2px solid white;
   max-width: 110px;
   position: relative;
 }
 
+.regi-idx-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 5px;
+  width: 300px;
+}
+
+#regi-idx-delete {
+  height: 30px;
+  background-color: #70b8e0;
+  color: rgb(5, 6, 55);
+  width: 50px;
+}
+
+#regi-idx-delete:active {
+  background-color: rgb(10, 64, 83);
+  box-shadow: 0 0 2px black;
+  transform: translateY(2px);
+}
+
+#regi-idx-edit {
+  height: 30px;
+  width: 50px;
+  background-color: #0f3460;
+  color: #E94560;
+}
+
+#regi-idx-edit:active {
+  background-color: rgb(10, 64, 83);
+  box-shadow: 0 0 2px black;
+  transform: translateY(2px);
+}
+
+.regi-idx-list-exrc{
+  max-width: 120px;
+}
+
+.reg-idx-avg-diff {
+  background-color: aliceblue;
+  padding: 5px;
+  color: black;
+  border-radius: 10%;
+  border: 2px solid #0f3460;
+}

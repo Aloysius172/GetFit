@@ -4,6 +4,17 @@ import Style from './delete_confirm.css'
 
 
 class DeleteConfirm extends React.Component {
+    constructor(props) {
+        super(props)
+        this.destroyRegimen = this.destroyRegimen.bind(this);
+    }
+
+    destroyRegimen(e) {
+        e.preventDefault();
+
+        this.props.deleteRegimen(this.props.regimen._id);
+        
+    }
 
     render() {
 
@@ -17,7 +28,7 @@ class DeleteConfirm extends React.Component {
                         </div>
                     </div>
                     <div className='delete-regi-title'>
-                            {this.props.title}
+                            {this.props.regimen.title}
                     </div>
                     <div className='title-underline'>
 
@@ -30,9 +41,11 @@ class DeleteConfirm extends React.Component {
                             </button>
                         </div>  
                         <div>
-                            <button id="delete-button" className='button'>
-                                Delete
-                            </button>
+                            <div>
+                                <form onSubmit={this.handleSubmit}>
+                                    <input className='login-signup-submit' type="submit" value="Delete" />
+                                </form>
+                            </div>  
                         </div>
                     </div>
                 </div>

@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import './regimen_index_item.css'
 import { HiOutlineTrash } from '@react-icons/all-files/hi/HiOutlineTrash'
-
+import { BiEdit } from '@react-icons/all-files/bi/BiEdit'
 
 class RegimenIndexItem extends React.Component{
   constructor(props){
     super(props)
     this.calcAvg = this.calcAvg.bind(this);
-    this.renderDelete = this.renderDelete.bind(this);
+    this.renderFooterButtons = this.renderFooterButtons.bind(this);
     this.calcTotal = this.calcTotal.bind(this);
     this.createShowExercises = this.createShowExercises.bind(this)
   }
@@ -17,16 +17,34 @@ class RegimenIndexItem extends React.Component{
     
   }
 
-  renderDelete(creator) {
+  renderFooterButtons(creator) {
     if (this.props.state.session.user.username && 
       this.props.state.session.user.username === creator[0]) {
       return (
-      <button id = "add-exrc-info-button" className = "button-submit" onClick = {() => this.props.openModal(["delete_confirm", creator[1]])}>
-        <HiOutlineTrash />
-      </button >
+        <div className='regi-idx-footer'>
+          <div>
+            <button id="regi-idx-delete" className="button" onClick={() => this.props.openModal(["delete_confirm", creator[1]])}>
+              <HiOutlineTrash />
+            </button >
+          </div>
+          <div className='reg-idx-avg-diff'>
+            Avg. Difficulty: {this.calcAvg(this.props.regimen.exercise_ids.map(exercise => exercise.difficulty ? exercise.difficulty : " "))}/3
+          </div>
+          <div>
+            <Link className='exercise-index-link-name-form' to={`/regimens/updateRegimen/${this.props.regimen._id}`}>
+              <button id='regi-idx-edit' className="button">
+                <BiEdit />
+              </button>
+            </Link>
+          </div>
+        </div>
       )
     } else {
-      return "";
+      return(
+        <div className='reg-idx-avg-diff'>
+          Avg. Difficulty: { this.calcAvg(this.props.regimen.exercise_ids.map(exercise => exercise.difficulty ? exercise.difficulty : " ")) }/3
+        </div>
+      )
     }
   }
 
@@ -73,10 +91,9 @@ class RegimenIndexItem extends React.Component{
       let showArrItem = [];
       if(exrcArr[i][1] > 1) {
       exrcArr[i][0] = exrcArr[i][0] + " (";
-      exrcArr[i].push("), ");
+      exrcArr[i].push(")");
       showArr.push(exrcArr[i]);
       } else {
-        exrcArr[i][0] = exrcArr[i][0] + ", ";
         showArr.push(exrcArr[i][0]);
       }
     }
@@ -94,9 +111,7 @@ class RegimenIndexItem extends React.Component{
     let uniqueExercises = [...new Set(exercises)];
     let countedExercises = this.calcTotal(exercises, uniqueExercises)
     let showExercises = this.createShowExercises(countedExercises);
-    let user = "Steve"
-    let muscTitle = "Muscle Groups: "
-    let diff = this.props.regimen.exercise_ids.map(exercise => exercise.difficulty ? exercise.difficulty : " ");
+    let user = this.props.regimen.creator;
    
     
 
@@ -124,24 +139,32 @@ class RegimenIndexItem extends React.Component{
         <div className='regimen-index-item'>
           <div className='regi-idx-exrc-cont'>
             <div className='regi-idx-exrc-title'>
-              Exercises:
+              Exercises
             </div>
             <div className='reg-shw-exrc-list'>
-              {showExercises}
+              {showExercises.map((exercise) =>
+                <li className='regi-idx-list-exrc'>
+                  {exercise}
+                </li>
+              )}
             </div>
           </div>
 
           <div className='regi-idx-musc-cont'>
             <div className='regi-idx-musc-title'>
-              {muscTitle}
+              Muscle Groups: 
             </div>
             <div className='reg-shw-musc-list'>
-              {uniqueMuscles}
-              {this.calcAvg(diff)}
-              {this.renderDelete([this.props.regimen.creator, this.props.regimen.title])}
+              {uniqueMuscles.map((muscle) =>
+                <li className='regi-idx-list-musc'>
+                  {muscle}
+                </li>
+              )}
             </div>
           </div>
-
+        </div>
+        <div className='regi-idx-footer'>
+            {this.renderFooterButtons([this.props.regimen.creator, this.props.regimen])}
         </div>
       </div>
     )

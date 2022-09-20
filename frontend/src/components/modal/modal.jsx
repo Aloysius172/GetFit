@@ -21,7 +21,7 @@ function Modal({ modal, closeModal }) {
                 exrc={modal[1]}/>;
     } else if(modal[0] === "delete_confirm") {
         component = <DeleteConfirmContainer
-                title={modal[1]}/>;
+                regimen={modal[1]}/>;
     }
     // switch (modal) { //[string, info]
     //     case 'login':

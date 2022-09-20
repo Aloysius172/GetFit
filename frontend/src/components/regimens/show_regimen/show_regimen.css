@@ -148,7 +148,33 @@
     position: relative;
     bottom: -1px;
 }
-.Tweets{
-    margin-top: 200px;
 
+.regi-shw-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    top: -140px;
+}
+
+#regi-show-delete {
+    height: 40px;
+    background-color: #70b8e0;
+    color:rgb(5, 6, 55);
+}
+#regi-show-delete:active {
+    background-color: rgb(10, 64, 83);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
+}
+ 
+#regi-show-edit {
+    height: 40px;
+    background-color: #e94560;
+}
+
+#regi-show-edit:active {
+    background-color: rgb(80, 11, 11);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
 }
