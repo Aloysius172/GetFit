@@ -1,6 +1,8 @@
 import React from "react";
 import './show_regimen.css'
 import { Link } from 'react-router-dom'
+import TweetComposeContainer from '../../tweets/tweet_compose_container';
+
 
 
 class RegimenShow extends React.Component {
@@ -77,6 +79,9 @@ class RegimenShow extends React.Component {
                         </div>
                         </div>
                     </ul>
+                    <div className="Tweets">
+                            <TweetComposeContainer/>
+                    </div>
                     </div>
                 </div>
             </div>
