@@ -14,10 +14,10 @@ export default function (state = {}, action) {
       nextState[action.regimen._id] = action.regimen;
       return nextState;
     case REMOVE_REGIMEN:
-      nextState = {}
-      return Object.assign({}, state, nextState);
+      debugger;
+      delete nextState[action.regimenId]; 
+      return nextState;
     default:
       return state;
-
   }
 }

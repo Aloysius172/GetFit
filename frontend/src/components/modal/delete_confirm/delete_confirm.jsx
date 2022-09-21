@@ -1,6 +1,7 @@
 import React from 'react';
 // import ModalStyle from './modal.css'
 import Style from './delete_confirm.css'
+import { Redirect } from 'react-router';
 
 
 class DeleteConfirm extends React.Component {
@@ -11,9 +12,9 @@ class DeleteConfirm extends React.Component {
 
     destroyRegimen(e) {
         e.preventDefault();
+        debugger;
 
-        this.props.deleteRegimen(this.props.regimen._id);
-        
+        this.props.deleteRegimen(this.props.regimen._id).then(() => this.props.history.push('/regimens'));
     }
 
     render() {
@@ -42,8 +43,8 @@ class DeleteConfirm extends React.Component {
                         </div>  
                         <div>
                             <div>
-                                <form onSubmit={this.handleSubmit}>
-                                    <input className='login-signup-submit' type="submit" value="Delete" />
+                                <form onSubmit={this.destroyRegimen}>
+                                    <input className='button' type="submit" value="Delete" />
                                 </form>
                             </div>  
                         </div>

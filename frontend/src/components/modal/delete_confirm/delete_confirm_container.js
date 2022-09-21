@@ -10,9 +10,10 @@ const mSTP = (state) => {
 };
 
 const mDTP = (dispatch) => {
+    debugger;
     return {
         closeModal: () => dispatch(closeModal()),
-        deleteRegimen: (id)=>dispatch(deleteRegimens(id)),
+        deleteRegimen: (regimenId)=>dispatch(deleteRegimens(regimenId)),
     }
 }
 
