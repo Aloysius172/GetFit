@@ -13,9 +13,9 @@ export const createRegimen = (regimenData) => {
   return axios.post('api/regimens/', regimenData)
 }
 
-export const deleteRegimen = (regimenId) => {
-  return axios.delete(`api/regimens/${regimenId}`)
-}
+export const deleteRegimen = (regimenId) => (
+  axios.delete(`api/regimens/${regimenId}`)
+)
 
 // export const fetchUserRegimen = (userId) => (
 //   axios.get(`/api/regimens/users/${userId}`)

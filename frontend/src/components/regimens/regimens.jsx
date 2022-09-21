@@ -28,7 +28,7 @@ class Regimens extends React.Component {
                 let col2 = [];
                 let col3 = [];
                 for (let i = 0; i < regimens.length; i++) {
-                    let temp = i % 4;
+                    let temp = i % 3;
                     if (temp === 0) {
                         col1.push(regimens[i]);
                     } else if (temp === 1) {
