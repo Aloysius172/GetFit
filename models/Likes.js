@@ -1,26 +1,21 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+//populate method to retrieve info
+//https://mongoosejs.com/docs/populate.html
 const LikeSchema = new Schema(
     {
-        liked: {
-            type: Boolean,
-            // default: false,
-            require: true,
-        },
         user_id: {
             type: Schema.Types.ObjectId,
-            // type: String,
+            type: String,
             ref: "users",
-            // required: true,
+            required: true,
         },
         regimen_id: {
             type: Schema.Types.ObjectId,
-            // type: String,
+            type: String,
             ref: "regimens",
-            // required: true,
+            required: true,
         },
-
         date: {
             type: Date,
             default: Date.now
