@@ -3,6 +3,9 @@ import React from 'react'
 import './regimen_index_item.css'
 import { HiOutlineTrash } from '@react-icons/all-files/hi/HiOutlineTrash'
 import { BiEdit } from '@react-icons/all-files/bi/BiEdit'
+import { AiFillLike } from '@react-icons/all-files/ai/AiFillLike'
+import { AiOutlineLike } from '@react-icons/all-files/ai/AiOutlineLike'
+
 
 class RegimenIndexItem extends React.Component{
   constructor(props){
@@ -10,11 +13,34 @@ class RegimenIndexItem extends React.Component{
     this.calcAvg = this.calcAvg.bind(this);
     this.renderFooterButtons = this.renderFooterButtons.bind(this);
     this.calcTotal = this.calcTotal.bind(this);
-    this.createShowExercises = this.createShowExercises.bind(this)
+    this.createShowExercises = this.createShowExercises.bind(this);
+    this.renderLiked = this.renderLiked.bind(this);
   }
 
   componentDidMount() {
     
+  }
+
+  renderLiked(user) {
+    if (this.props.state.session.user.id === user) {
+      return (
+        <div>
+          <button>
+            <AiFillLike />
+          </button>
+          
+        </div>
+      )
+    } else {
+        return (
+          <div>
+            <button>
+              <AiOutlineLike />
+            </button>
+            
+          </div>
+        )
+    }
   }
 
   renderFooterButtons(creator) {
@@ -165,6 +191,15 @@ class RegimenIndexItem extends React.Component{
         </div>
         <div className='regi-idx-footer'>
             {this.renderFooterButtons([this.props.regimen.creator, this.props.regimen])}
+        </div>
+
+        <div className='regi-idx-likes'>
+            <div>
+                Likes: 42 
+                {/* {this.renderLikes} */}
+            </div>
+
+            {this.renderLiked(this.props.state.session.user.id)}
         </div>
       </div>
     )

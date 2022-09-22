@@ -21,7 +21,6 @@ export const receiveRegimen = (regimen) => {
 }
 
 export const removeRegimen = (regimenId) => {
-  debugger;
   return {
     type: REMOVE_REGIMEN,
     regimenId,
@@ -44,7 +43,6 @@ export const createRegimen = (formRegimen) => dispatch => {
 }
 
 export const deleteRegimens = (regimenId) => dispatch => {
-  debugger;
   return RegimenUtil.deleteRegimen(regimenId)
     .then(() => dispatch(removeRegimen(regimenId)))
 }

@@ -4,6 +4,8 @@ const passport = require("passport");
 const Like = require("../../models/Likes");
 const validateLikeInput = require("../../validations/like")
 
+//https://mongoosejs.com/docs/populate.html
+
 router.get("/test", (req, res) => res.json({ msg: "This is the Like route" }));
 
 router.get('/', (req, res) => {
@@ -14,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 
-//All like for a regimen showing up by latest createdAt
+//All likes for a regimen showing up by latest createdAt
 router.get('/:regimen_id', (req, res) => {
     Vote.find({ regimen_id: req.params.regimen_id })
         .sort({ createdAt: -1 })
@@ -52,25 +54,41 @@ router.post('/', (req, res) => {
 
         const newLike = new Like({
             user_id: req.body.user_id,
-            voted: req.body.voted,
-            crawl_id: req.body.crawl_id,
+            regimen_id: req.body.regimen_id,
         });
 
-        newLike
-            .save()
-            .then(like => res.json(like));
+        newLike.save()
+            .then(like => res.json(like))
+            .catch(err => console.log(err));
     });
 
 
 // Delete route for like
-router.delete('/:id', (req, res) => {
+// router.delete('/:id', (req, res) => {
 
-    const likeFilter = { _id: req.params.id };
-    // deletes Regimen
-    Like.findOneAndRemove(likeFilter)
-        .then(like => res.status(200).json(like))
-        .catch(() => res.status(404).json({ error: "like not found" })
-        )
-});
+//     const likeFilter = { _id: req.params.id };
+//     // deletes Regimen
+//     Like.findOneAndRemove(likeFilter)
+//         .then(like => res.status(200).json(like))
+//         .catch(() => res.status(404).json({ error: "like not found" })
+//         )
+// });
+
+router.delete('/:id', (req, res) => {
+    Like.findById(req.params.id)
+        .then(like => {
+
+            // if (like.ownerId.toString() !== req.user.id) {
+            //     return res.status(401).json({ unauthorized: 'Only the owner can delete this like.' })
+            // }
+
+            Like.findByIdAndDelete(like.id, function (err) {
+                if (err) console.log(err);
+                console.log("Successful deletion.")
+            })
+            return res.status(200).json({ deleted: "true" })
+        })
+        .catch(err => res.status(404).json({ nolikeFound: "No like found with that ID" }))
+})
 
 module.exports = router;
