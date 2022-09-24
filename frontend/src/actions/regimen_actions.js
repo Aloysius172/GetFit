@@ -1,4 +1,5 @@
 import * as RegimenUtil from '../util/regimen_util'
+// import { RECEIVE_LIKE } from './like_action'
 
 
 export const RECEIVE_REGIMEN = "RECEIVE_REGIMEN"
@@ -27,6 +28,8 @@ export const removeRegimen = (regimenId) => {
   }
 }
 
+
+
 export const fetchRegimen = (regimenId) => dispatch => RegimenUtil.fetchRegimen(regimenId)
   .then(regimen => dispatch(receiveRegimen(regimen.data)));
 
@@ -37,15 +40,23 @@ export const updateRegimen = (regimen) => dispatch => RegimenUtil.updateRegimen(
   .then(regimen => dispatch(receiveRegimen(regimen.data)));
 
 
-export const createRegimen = (formRegimen) => dispatch => {
-  return RegimenUtil.createRegimen(formRegimen)
-  .then(regimen => dispatch(receiveRegimen(regimen.data)))
-}
 
 export const deleteRegimens = (regimenId) => dispatch => {
   return RegimenUtil.deleteRegimen(regimenId)
     .then(() => dispatch(removeRegimen(regimenId)))
 }
+
+export const createRegimen = (formRegimen) => dispatch => {
+  return RegimenUtil.createRegimen(formRegimen)
+    .then(regimen => dispatch(receiveRegimen(regimen.data)))
+}
+
+// export const likeRegimen = (likeData) => dispatch => {
+//   debugger;
+//   console.log("actions")
+//   return RegimenUtil.likeRegimen(likeData)
+//    .then(like => dispatch(receiveLike(like.data)))
+// }
 
 // export const fetchUserRegimen = (regimenId) => dispatch => {
 //   return RegimenUtil.fetchUserRegimen(regimenId)

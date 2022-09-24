@@ -7,3 +7,7 @@ export const createLike = (likeData) => {
 export const deleteLike = (likeId) => (
     axios.delete(`api/likes/${likeId}`)
 )
+
+export const fetchLikes = () => (
+    axios.get('/api/likes')
+)

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 //populate method to retrieve info
 //https://mongoosejs.com/docs/populate.html
 const LikeSchema = new Schema(
-    {
+    {   
         user_id: {
             type: Schema.Types.ObjectId,
             type: String,

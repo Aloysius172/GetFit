@@ -25,3 +25,8 @@ export const deleteRegimen = (regimenId) => (
 export const updateRegimen = (regimen) => {
   return axios.patch(`/api/regimens/${regimen.id}`, regimen)
 }
+
+// export const likeRegimen = (likeData) => {
+//   console.log("util")
+//   return axios.post('/api/regimens/like-regimen', likeData)
+// }
