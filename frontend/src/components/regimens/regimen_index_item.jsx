@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom'
-import React from 'react'
-import './regimen_index_item.css'
-import { HiOutlineTrash } from '@react-icons/all-files/hi/HiOutlineTrash'
-import { BiEdit } from '@react-icons/all-files/bi/BiEdit'
-import { AiFillLike } from '@react-icons/all-files/ai/AiFillLike'
-import { AiOutlineLike } from '@react-icons/all-files/ai/AiOutlineLike'
+import { Link } from 'react-router-dom';
+import React from 'react';
+import './regimen_index_item.css';
+import { HiOutlineTrash } from '@react-icons/all-files/hi/HiOutlineTrash';
+import { BiEdit } from '@react-icons/all-files/bi/BiEdit';
+import { AiFillLike } from '@react-icons/all-files/ai/AiFillLike';
+import { AiOutlineLike } from '@react-icons/all-files/ai/AiOutlineLike';
 
 
 class RegimenIndexItem extends React.Component{
@@ -15,32 +15,75 @@ class RegimenIndexItem extends React.Component{
     this.calcTotal = this.calcTotal.bind(this);
     this.createShowExercises = this.createShowExercises.bind(this);
     this.renderLiked = this.renderLiked.bind(this);
+    this.thumbsUpRegimen = this.thumbsUpRegimen.bind(this);
+    this.thumbsDownRegimen = this.thumbsDownRegimen.bind(this);
   }
 
   componentDidMount() {
-    
+    this.props.fetchLikes();
   }
 
-  renderLiked(user) {
-    if (this.props.state.session.user.id === user) {
+  thumbsUpRegimen() {
+    let like = {
+      user_id: this.props.state.session.user.id,
+      regimen_id: this.props.regimen._id
+    }
+    debugger;
+    this.props.createLike(like);
+  }
+
+  thumbsDownRegimen(likeId) {
+    this.props.destroyLike(likeId);
+  }
+
+  renderLiked(regimenId) {
+    if(this.props.likes) {
+    let count = 0;
+    let liked = false;
+    let like;
+    let theLikes = this.props.likes.map(like => like)
+    for(let i = 0; i < theLikes.length; i++) {
+      if (theLikes[i].user_id === this.props.state.session.user.id 
+        && theLikes[i].regimen_id === regimenId) {
+          liked = true;
+          like = theLikes[i]._id
+        }
+      if(theLikes[i].regimen_id === regimenId) {
+        count++;
+      }
+    }
+    if (liked) {
       return (
-        <div>
-          <button>
-            <AiFillLike />
-          </button>
-          
+        <div className='regi-idx-likes'>
+          <div>
+            Likes {count}
+            {/* {this.renderLikes} */}
+          </div>
+          <div className='likes-spacer'>
+
+          </div>
+          <div onClick={() => this.thumbsDownRegimen(like)}>
+            <AiFillLike size={20} />
+          </div>
         </div>
       )
     } else {
         return (
-          <div>
-            <button>
-              <AiOutlineLike />
-            </button>
-            
+          <div className='regi-idx-likes'>
+            <div>
+              Likes {count}
+              {/* {this.renderLikes} */}
+            </div>
+            <div className='likes-spacer'>
+
+            </div>
+            <div onClick={() => this.thumbsUpRegimen()}>
+              <AiOutlineLike size={20}/>
+            </div>
           </div>
         )
     }
+  }
   }
 
   renderFooterButtons(creator) {
@@ -51,6 +94,7 @@ class RegimenIndexItem extends React.Component{
           <div>
             <button id="regi-idx-delete" className="button" onClick={() => this.props.openModal(["delete_confirm", creator[1]])}>
               <HiOutlineTrash />
+
             </button >
           </div>
           <div className='reg-idx-avg-diff'>
@@ -178,7 +222,7 @@ class RegimenIndexItem extends React.Component{
 
           <div className='regi-idx-musc-cont'>
             <div className='regi-idx-musc-title'>
-              Muscle Groups: 
+              Muscle Groups
             </div>
             <div className='reg-shw-musc-list'>
               {uniqueMuscles.map((muscle) =>
@@ -192,15 +236,7 @@ class RegimenIndexItem extends React.Component{
         <div className='regi-idx-footer'>
             {this.renderFooterButtons([this.props.regimen.creator, this.props.regimen])}
         </div>
-
-        <div className='regi-idx-likes'>
-            <div>
-                Likes: 42 
-                {/* {this.renderLikes} */}
-            </div>
-
-            {this.renderLiked(this.props.state.session.user.id)}
-        </div>
+          {this.renderLiked(this.props.regimen._id)}
       </div>
     )
   }

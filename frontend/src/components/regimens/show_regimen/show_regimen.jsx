@@ -3,6 +3,8 @@ import './show_regimen.css'
 import { Link } from 'react-router-dom'
 import { HiOutlineTrash } from '@react-icons/all-files/hi/HiOutlineTrash'
 import { BiEdit } from '@react-icons/all-files/bi/BiEdit'
+import { AiFillLike } from '@react-icons/all-files/ai/AiFillLike';
+import { AiOutlineLike } from '@react-icons/all-files/ai/AiOutlineLike';
 
 class RegimenShow extends React.Component {
     constructor(props) {
@@ -10,11 +12,77 @@ class RegimenShow extends React.Component {
         this.calcAvg = this.calcAvg.bind(this);
         this.renderFooterButtons = this.renderFooterButtons.bind(this);
         this.calcTotal = this.calcTotal.bind(this);
-        this.createShowExercises = this.createShowExercises.bind(this)
+        this.createShowExercises = this.createShowExercises.bind(this);
+        this.renderLiked = this.renderLiked.bind(this);
+        this.thumbsUpRegimen = this.thumbsUpRegimen.bind(this);
+        this.thumbsDownRegimen = this.thumbsDownRegimen.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchRegimen(this.props.match.params.regimenId);
+        this.props.fetchLikes();
+    }
+
+    thumbsUpRegimen() {
+        let like = {
+            user_id: this.props.state.session.user.id,
+            regimen_id: this.props.regimen._id
+        }
+        this.props.createLike(like);
+    }
+
+    thumbsDownRegimen(likeId) {
+        this.props.destroyLike(likeId);
+    }
+
+    renderLiked(regimenId) {
+        if (this.props.likes) {
+            let count = 0;
+            let liked = false;
+            let like;
+            let theLikes = this.props.likes.map(like => like)
+            for (let i = 0; i < theLikes.length; i++) {
+                if (theLikes[i].user_id === this.props.state.session.user.id
+                    && theLikes[i].regimen_id === regimenId) {
+                    liked = true;
+                    like = theLikes[i]._id
+                }
+                if (theLikes[i].regimen_id === regimenId) {
+                    count++;
+                }
+            }
+            if (liked) {
+                return (
+                    <div className='regi-idx-likes'>
+                        <div>
+                            Likes {count}
+                            {/* {this.renderLikes} */}
+                        </div>
+                        <div className='likes-spacer'>
+
+                        </div>
+                        <div onClick={() => this.thumbsDownRegimen(like)}>
+                            <AiFillLike size={20} />
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className='regi-idx-likes'>
+                        <div>
+                            Likes {count}
+                            {/* {this.renderLikes} */}
+                        </div>
+                        <div className='likes-spacer'>
+
+                        </div>
+                        <div onClick={() => this.thumbsUpRegimen()}>
+                            <AiOutlineLike size={20} />
+                        </div>
+                    </div>
+                )
+            }
+        }
     }
 
     renderFooterButtons(creator) {
@@ -108,6 +176,7 @@ class RegimenShow extends React.Component {
 
         return (
             <div className="regi-shw-pg">
+                {this.renderLiked(this.props.regimen._id)}
                 <div className="regi-shw-pg-container">
                     <div className="reg-shw-title-auth">
                         <div>

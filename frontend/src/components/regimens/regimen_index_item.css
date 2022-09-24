@@ -58,6 +58,7 @@
   min-height: 30px;
   min-width: 20px;
   padding: 5px;
+  border: 2px solid rgb(84, 38, 144);
   
 }
 
@@ -137,4 +138,8 @@
   width: 300px;
   position: relative;
   left: -100px;
+}
+
+.likes-spacer {
+  width: 10px;
 }
