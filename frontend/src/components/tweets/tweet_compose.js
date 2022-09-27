@@ -6,6 +6,11 @@ class TweetCompose extends React.Component {
         super(props);
 
         this.state = {
+            user_id: props.currentUserId,
+            commentCreatorName: props.currentUserName,
+            regimen_id: props.regimen.id,
+            regimenCreator_id: props.regimen.user_id,
+            regimenCreatorName: props.regimen.creator,
             text: "",
             newTweet: ""
         }
@@ -20,6 +25,11 @@ class TweetCompose extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let tweet = {
+            user_id: this.state.user_id,
+            commentCreatorName: this.state.commentCreatorName,
+            regimen_id: this.state.regimen_id,
+            regimenCreator_id: this.state.regimenCreator_id,
+            regimenCreatorName: this.state.regimenCreatorName, 
             text: this.state.text
         };
 
