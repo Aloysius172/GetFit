@@ -106,7 +106,7 @@ class LoginForm extends React.Component {
           </div>
         </form>
         <div className='modal-footer-login'>
-          <button className='close-modal-button'
+          <button id='close-modal-button-login-form' className='button'
             onClick={this.props.closeModal}>
             Close
           </button>
