@@ -34,8 +34,24 @@
 
 #cancel-button {
     height: 30px;
+    background-color: rgb(26, 26, 173);
+    color: rgb(255, 255, 255);
 }
 
-#delete-button {
+#cancel-button:active {
+    background-color: rgb(5, 8, 78);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
+}
+
+#close-delete-button {
     height: 30px;
+    background-color: rgb(26, 26, 173);
+    color:rgb(255, 255, 255);
+}
+
+#close-delete-button:active {
+    background-color: rgb(5, 8, 78);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
 }

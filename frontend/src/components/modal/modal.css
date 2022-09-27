@@ -42,12 +42,19 @@
     background-color: rgb(209, 48, 48);
     padding: 20px;
     border-radius: 10px;
+    /* width: 500px; */
+    align-items: center;
+    justify-content: center;
+    width: 330px;
+    position: relative;
+
 }
 
 .signup-form-container {
     padding: 20px;
     border-radius: 10px;
     background-color: rgb(216, 50, 50);
+    width: 340px;
 }
 
 .submit-button {
@@ -110,12 +117,16 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+    position: relative;
+    left: 90px;
 }
 
 .login-form {
     display: flex;
     justify-content: center;
     align-items: center; 
+    position: relative;
+    left: 90px;
 }
 
 .greeting-login {
@@ -140,6 +151,42 @@
 
 .demo-login:active {
     background-color: rgb(64, 64, 3);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
+}
+
+#close-modal-button-login-form {
+    height: 30px;
+    width: 80px;
+    background-color: rgb(26, 26, 173);
+    color:rgb(255, 255, 255);
+    position: relative;
+    left: 45px;
+}
+
+#close-modal-button-login-form:active {
+    background-color: rgb(5, 8, 78);
+    box-shadow: 0 0 2px black;
+    transform: translateY(2px);
+}
+
+.submit-button {
+    position: relative;
+    right: 165px;
+    top: 30px;
+}
+
+#submit-button-close {
+    height: 30px;
+    width: 80px;
+    position: relative;
+    left: 40px;
+    background-color: rgb(26, 26, 173);
+    color:rgb(255, 255, 255);
+}
+
+#submit-button-close:active {
+    background-color: rgb(5, 8, 78);
     box-shadow: 0 0 2px black;
     transform: translateY(2px);
 }

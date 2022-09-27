@@ -117,7 +117,7 @@ class SignupForm extends React.Component {
           </div>
         </form>
         <div className='modal-footer-signup'>
-          <button className='close-modal-button'
+          <button className='button' id='submit-button-close'
             onClick={this.props.closeModal}>
             Close
           </button>

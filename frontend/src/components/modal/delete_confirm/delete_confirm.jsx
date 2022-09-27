@@ -44,7 +44,7 @@ class DeleteConfirm extends React.Component {
                         <div>
                             <div>
                                 <form onSubmit={this.destroyRegimen}>
-                                    <input className='button' type="submit" value="Delete" />
+                                    <input id='close-delete-button' className='button' type="submit" value="Delete" />
                                 </form>
                             </div>  
                         </div>
