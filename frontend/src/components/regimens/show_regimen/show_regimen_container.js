@@ -5,12 +5,19 @@ import { deleteRegimens } from '../../../actions/regimen_actions';
 import RegimenShow from './show_regimen';
 import { openModal } from '../../../actions/modal_actions';
 
+import { composeTweet, fetchRegimenTweets, updateTweet, tweetDeletion } from '../../../actions/tweet_action';
+
+
+
 const mSTP = (state, ownProps) => {
 
     return {
         state: state,
         currentUserId: state.session.user.id,
-        regimen: state.entities.regimens[ownProps.match.params.regimenId]
+        currentUserName: state.session.user.username,
+        regimen: state.entities.regimens[ownProps.match.params.regimenId],
+        newTweet: state.entities.tweets.new,
+        regimenTweets: Object.values(state.entities.tweets)
     };
 };
 
@@ -19,6 +26,10 @@ const mDTP = (dispatch) => {
         fetchRegimen: regimenId => dispatch(fetchRegimen(regimenId)),
         deleteRegimens: regimenId => dispatch(deleteRegimens(regimenId)),
         openModal: modal => dispatch(openModal(modal)),
+        composeTweet: data => dispatch(composeTweet(data)),
+        fetchRegimenTweets: regimenId => dispatch(fetchRegimenTweets(regimenId)),
+        updateTweet: data => dispatch(updateTweet(data)),
+        deleteTweet: tweetId => dispatch(tweetDeletion(tweetId))
     };
 };
 

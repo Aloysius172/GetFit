@@ -1,18 +1,24 @@
-import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET } from '../actions/tweet_action';
+import { RECEIVE_TWEETS, RECEIVE_USER_TWEETS, RECEIVE_NEW_TWEET, RECEIVE_REGIMEN_TWEETS, DELETE_TWEET } from '../actions/tweet_action';
 
-const TweetsReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
+const TweetsReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_TWEETS:
-            newState.all = action.tweets.data;
+            newState = action.tweets.data;
             return newState;
         case RECEIVE_USER_TWEETS:
-            newState.user = action.tweets.data;
+            newState = action.tweets.data;
+            return newState;
+        case RECEIVE_REGIMEN_TWEETS:
+            newState = action.tweets.data;
             return newState;
         case RECEIVE_NEW_TWEET:
-            newState.new = action.tweet.data
+            newState[action.tweet._id] = action.tweet.data
             return newState;
+        case DELETE_TWEET:
+            delete newState[action.tweetId];
+            return newState
         default:
             return state;
     }

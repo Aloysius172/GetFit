@@ -178,3 +178,19 @@
     box-shadow: 0 0 2px black;
     transform: translateY(2px);
 }
+
+.newCommentForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 300px;
+}
+
+.commentsDiv {
+    color:rgb(206, 194, 194);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
