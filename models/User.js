@@ -14,6 +14,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  likedRegimens: {
+    type: Array,
+    default: []
+  },
   date: {
     type: Date,
     default: Date.now

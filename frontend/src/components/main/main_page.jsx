@@ -90,7 +90,7 @@ const Greeting = ({ currentUser, logout, openModal, processDemoLogin }) => {
         </p>
         </div>
         </div>
-  </div>
+    </div>
         
 
       );

@@ -2,9 +2,11 @@ const express = require("express");
 const router = express.Router();
 const Regimen = require("../../models/Regimens");
 const passport = require("passport");
+const Users = require("../../models/User");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the regimen route" }));
 // user_id
+
 
 
 router.get("/", (req, res) => {
@@ -78,6 +80,36 @@ router.patch('/:id',
             })
                 .catch(err => res.status(404).json( { noRegimenFound: "No regimen found in the database with that ID"} ))
 });
+
+// router.post('/like-regimen', (req, res) => {
+//     Users.findOne({ _id: req.body.userId, likedRegimens: { $in: [req.body.regimenId] } }).then(async user => {
+//         if (!user) {
+//             await Users.updateOne({ _id: req.body.userId }, {
+//                 $push: {
+//                     likedRegimens: req.body.regimenId
+//                 }
+//             });
+//             await Regimens.updateOne({ _id: req.body.regimenId }, {
+//                 $inc: {
+//                     likes: 1
+//                 }
+//             });
+//             res.status(200).json({ message: 'Added To Liked' });
+//         } else {
+//             await Users.updateOne({ _id: req.body.userId }, {
+//                 $pull: {
+//                     likedRegimens: req.body.regimenId
+//                 }
+//             });
+//             await Regimens.updateOne({ _id: req.body.regimenId }, {
+//                 $inc: {
+//                     likes: -1
+//                 }
+//             })
+//             res.status(200).json({ message: 'Removed from liked' })
+//         }
+//     })
+// });
 
 
 

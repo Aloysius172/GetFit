@@ -98,14 +98,50 @@
     justify-content: center;
 }
 
-.regi-shw-exrc-grid {
+.regi-shw-exrc-grid-5 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     column-gap: 120px;
     row-gap: 30px;
     position: relative;
     top: 30px;
-    left: 30px;
+    padding: 40px;
+}
+
+.regi-shw-exrc-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 120px;
+    row-gap: 30px;
+    position: relative;
+    top: 30px;
+}
+
+.regi-shw-exrc-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 120px;
+    row-gap: 30px;
+    position: relative;
+    top: 30px;
+}
+
+.regi-shw-exrc-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 120px;
+    row-gap: 30px;
+    position: relative;
+    top: 30px;
+}
+
+.regi-shw-exrc-grid-1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 120px;
+    row-gap: 30px;
+    position: relative;
+    top: 30px;
 }
 
 .regi-shw-exrc-title {
@@ -132,8 +168,6 @@
     font-weight: bold;
     font-size: x-large;
     position: relative;
-    left: 42%;
-    width: 200px;
     border-left: 2px solid rgb(206, 194, 194);
     border-right: 2px solid rgb(206, 194, 194);
 }
@@ -153,8 +187,14 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    position: relative;
     top: -140px;
+    position: absolute;
+    top: 120px;
+    left: 40%;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 20px;
+    background-color: #c75fde;
+    border-radius: 10%;
 }
 
 #regi-show-delete {
@@ -193,4 +233,35 @@
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.reg-idx-avg-diff-not-creator {
+    width: 10%;
+    background-color: aliceblue;
+    border-radius: 10%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 45%;
+    top: -600px;
+}
+
+.regi-shw-exrc-diff {
+    color: aqua;
+}
+
+.assisted-index {
+    color: rgb(189, 61, 189);
+}
+
+.not-creator-diff-regi-shw {
+    position: absolute;
+    top: 120px;
+    left: 45%;
+    border: 2px solid blanchedalmond;
+    padding: 20px;
+    background-color: #e94560;
+    border-radius: 10%;
 }
