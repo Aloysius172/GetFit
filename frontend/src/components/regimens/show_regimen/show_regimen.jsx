@@ -9,9 +9,27 @@ import { GiWeightLiftingUp } from '@react-icons/all-files/gi/GiWeightLiftingUp'
 import { AiOutlineTeam } from '@react-icons/all-files/ai/AiOutlineTeam'
 import { BsPerson } from '@react-icons/all-files/bs/BsPerson'
 
+import RegimenComments from './regimen_comments';
+import { receiveRegimenTweets } from "../../../actions/tweet_action";
+
+
 class RegimenShow extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+
+        this.state = {
+            user_id: props.currentUserId,
+            commentCreatorName: props.currentUserName,
+            regimen_id: props.regimen._id,
+            regimenTitle: props.regimen.title,
+            regimenCreator_id: props.regimen.user_id,
+            regimenCreatorName: props.regimen.creator,
+            text: "",
+            newTweet: ""
+        }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+
         this.calcAvg = this.calcAvg.bind(this);
         this.renderFooterButtons = this.renderFooterButtons.bind(this);
         this.calcTotal = this.calcTotal.bind(this);
@@ -25,8 +43,35 @@ class RegimenShow extends React.Component {
         this.generateAssisted = this.generateAssisted.bind(this);
     }
 
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ newTweet: nextProps.newTweet.text });
+    // }
+
     componentDidMount() {
         this.props.fetchRegimen(this.props.match.params.regimenId);
+        this.props.fetchRegimenTweets(this.props.match.params.regimenId);
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let tweet = {
+            user_id: this.state.user_id,
+            commentCreatorName: this.state.commentCreatorName,
+            regimen_id: this.state.regimen_id,
+            regimenTitle: this.state.regimenTitle,
+            regimenCreator_id: this.state.regimenCreator_id,
+            regimenCreatorName: this.state.regimenCreatorName, 
+            text: this.state.text
+        };
+
+        this.props.composeTweet(tweet);
+        this.setState({ text: '' })
+    }
+
+    update() {
+        return e => this.setState({
+            text: e.currentTarget.value
+        });
         this.props.fetchLikes();
     }
 
@@ -321,6 +366,32 @@ class RegimenShow extends React.Component {
                 <div>
                     {this.renderFooterButtons([this.props.regimen.creator, this.props.regimen])}
                 </div>
+                <div className="newCommentForm">
+                    <form onSubmit={this.handleSubmit}>
+                        <div>
+                            <input type="textarea"
+                                value={this.state.text}
+                                onChange={this.update()}
+                                placeholder="Write your Comment..."
+                            />
+                            <input type="submit" value="Submit" />
+                        </div>
+                    </form>
+                    <br />
+                </div>
+                <div className="commentsDiv">
+                    <ul>
+                            {this.props.regimenTweets.map(comment => (
+                                <RegimenComments
+                                    comment = {comment}
+                                    deleteTweet = {this.props.deleteTweet}
+                                    key = {comment.id}
+                                />
+                            ))                        
+                            }
+                    </ul>
+                </div>
+
             </div>
         )
     }
