@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { getUsers } from "../../actions/user_actions";
-import UserIndex from "./user_index";
+import Developers from "./developers";
 
 
 const mSTP = (state) => {
@@ -18,4 +18,4 @@ const mDTP = dispatch => {
     }
 }
 
-export default connect(mSTP, mDTP)(UserIndex)
+export default connect(mSTP, mDTP)(Developers)

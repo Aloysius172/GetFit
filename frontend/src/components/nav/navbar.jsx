@@ -11,6 +11,7 @@ import { GiMuscleUp } from '@react-icons/all-files/gi/GiMuscleUp'
 import { AiOutlineCalendar } from '@react-icons/all-files/ai/AiOutlineCalendar'
 import { ImCool } from '@react-icons/all-files/im/ImCool'
 import { BiLogOut } from '@react-icons/all-files/bi/BiLogOut'
+import { HiUserGroup } from '@react-icons/all-files/hi/HiUserGroup'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -69,10 +70,10 @@ class NavBar extends React.Component {
                         <div>Calendar</div>
                         </button>
                     </Link>
-                    <Link className="nav-button" to={'/users'}>
+                    <Link className="nav-button" to={'/developers'}>
                         <button className="button" id="user-nav-logged-in">
-                            <div><ImCool size={30}/></div>
-                           <div>{this.props.username}</div> 
+                            <div><HiUserGroup size={30}/></div>
+                           <div>Developers</div> 
                         </button>
                     </Link>
 
