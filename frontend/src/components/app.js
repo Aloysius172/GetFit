@@ -16,7 +16,7 @@ import './app_css_reset.css';
 
 import NavBarContainer from './nav/navbar_container'
 
-import user_index_container from './user/user_index_container';
+import developers_container from './devs/developers_container';
 
 
 // import MainPageContainer from './main/main_page_container';
@@ -49,7 +49,7 @@ const App = () => (
       <ProtectedRoute exact path="/regimens" component={Regimens} />
       <ProtectedRoute exact path="/regimens/:regimenId" component={RegimenShowContainer} />
       <ProtectedRoute exact path="/regimens/updateRegimen/:regimenId" component={EditRegimenContainer} />
-      <ProtectedRoute exact path="/users" component={user_index_container} />
+      <ProtectedRoute exact path="/developers" component={developers_container} />
       {/* <AuthRoute exact path="/" component={MainPageContainer} /> */}
 
       <Route exact path="/tweets" component={TweetsContainer} />

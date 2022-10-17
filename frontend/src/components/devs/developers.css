@@ -1,0 +1,49 @@
+.the-developers {
+    background-color: rgb(46, 63, 157);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.developer-blob {
+    background-color: rgb(208, 51, 79);
+    height: 230px;
+    width: 230px;
+    padding: 15px;
+    border-radius: 10%;
+    font-family: 'Gill Sans',
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
+    font-size: large;
+}
+
+#grid {
+    width: 40%;
+    position: relative;
+    left: 30%;
+    top: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0px;
+    row-gap: 30px;
+}
+
+.dev-name {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.links {
+    padding-top: 60px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.dev-icon {
+    color: white;
+}
