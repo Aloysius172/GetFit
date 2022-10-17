@@ -64,12 +64,6 @@ class NavBar extends React.Component {
                         </button>
                     </Link>
 
-                    <Link className="nav-button" to={'/calendar'}> 
-                        <button className="button" id="calendar-nav">
-                            <div><AiOutlineCalendar size={30} /></div>
-                        <div>Calendar</div>
-                        </button>
-                    </Link>
                     <Link className="nav-button" to={'/developers'}>
                         <button className="button" id="user-nav-logged-in">
                             <div><HiUserGroup size={30}/></div>
