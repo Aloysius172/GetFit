@@ -26,7 +26,7 @@ router.get("/user/:user_id", (req, res) => {
 
 router.get("/regimen/:regimen_id", (req, res) => {
     Tweet.find({ regimen_id: req.params.regimen_id})
-        .then((tweets) => res.json(tweets))
+        .then(tweets => res.json(tweets))
         .catch((err) => 
             res.status(404).json({ nocommentsfound: "No comments found for the specified regimen"})
         );

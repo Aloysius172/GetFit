@@ -13,7 +13,7 @@ const mSTP = (state) => ({
 })
 
 const mDTP = (dispatch) => {
-    debugger;
+    // debugger;
     return {
         fetchUser: (userId) => dispatch(getUser(userId)),
         openModal: modal => dispatch(openModal(modal)),

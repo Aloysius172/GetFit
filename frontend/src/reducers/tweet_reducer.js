@@ -5,16 +5,22 @@ const TweetsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_TWEETS:
-            newState = action.tweets.data;
+            Object.values(action.tweets.data).forEach(tweet => {
+                newState[tweet._id] = tweet;
+              })
+            // newState = action.tweets.data;
             return newState;
         case RECEIVE_USER_TWEETS:
             newState = action.tweets.data;
             return newState;
         case RECEIVE_REGIMEN_TWEETS:
-            newState = action.tweets.data;
+            Object.values(action.tweets.data).forEach(tweet => {
+                newState[tweet._id] = tweet;
+              })
+            // newState = action.tweets;
             return newState;
         case RECEIVE_NEW_TWEET:
-            newState[action.tweet._id] = action.tweet.data
+            newState[action.tweet.data._id] = action.tweet.data
             return newState;
         case DELETE_TWEET:
             delete newState[action.tweetId];

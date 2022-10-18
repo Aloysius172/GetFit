@@ -369,12 +369,15 @@ class RegimenShow extends React.Component {
                 <div className="newCommentForm">
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <input type="textarea"
+                            <p class="comment-banner" >Leave a Comment Below</p>
+                            <input class="comment-box" type="textarea"
                                 value={this.state.text}
                                 onChange={this.update()}
                                 placeholder="Write your Comment..."
                             />
-                            <input type="submit" value="Submit" />
+                            <p class="comment-padding"></p>
+                            <input class="comment-submission"  type="submit" value="Post" />
+                            <p class="comment-padding"></p>
                         </div>
                     </form>
                     <br />

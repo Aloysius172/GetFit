@@ -98,7 +98,7 @@ class Regimens extends React.Component {
 
 
 const mSTP = (state) => {
-    // debugger
+   //debugger
     return {
         regimens: Object.values(state.entities.regimens),
         // users: Object.values(state.entities.users)
