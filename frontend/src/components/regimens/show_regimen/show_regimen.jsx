@@ -343,7 +343,7 @@ class RegimenShow extends React.Component {
                                     {showExercises.map((exerciseObject) =>
                             <li>
                                 <div className="regi-shw-exrc-title">
-                                    <Link className='exercise-index-link-name-form' to={`/exercises/${exerciseObject._id}`}>
+                                    <Link className='exercise-index-link-name-form' to={`/exercises/${exerciseObject[0]._id}`}>
                                         {exerciseObject[0].name + exerciseObject[2]}
                                     </Link>
                                 </div>
